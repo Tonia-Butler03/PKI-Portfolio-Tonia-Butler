@@ -15,19 +15,19 @@ assets/screenshots/week-01/certificate-inspection.png
 ## Website Information
 
 **Website inspected:**  
-<!-- Enter full URL -->
+https://www.homedepot.com/
 
 **Issuer (Certificate Authority):**  
-<!-- Example: DigiCert, Let's Encrypt, GlobalSign -->
+DigiCert
 
 **Valid from:**  
-<!-- Start date -->
+Sunday, August 3, 2025 at 8:00:00 PM
 
 **Valid until:**  
-<!-- Expiration date -->
+Tuesday, April 14, 2026 at 7:59:59 PM
 
 **Signature algorithm:**  
-<!-- Example: sha256WithRSAEncryption -->
+PKCS #1 SHA-256 With RSA Encryption
 
 ---
 
@@ -35,9 +35,9 @@ assets/screenshots/week-01/certificate-inspection.png
 
 List at least 2–3 SAN entries:
 
-- 
-- 
-- 
+- api.homedepot.com
+- apionline.homedepot.com
+- secure2.homedepot.com
 
 ---
 
@@ -46,13 +46,13 @@ List at least 2–3 SAN entries:
 Document three observations about the certificate.
 
 ### Observation 1
-<!-- What did you notice? -->
+I noticed that my desktop showed an alernative thrid party CA due to the installed fortinet firewall, while my mobil device showed the issuing CA as Digicert.
 
 ### Observation 2
-<!-- What did you notice? -->
+I noticed that there were several SAN's, some of the names were easily identifiable as being apart of the company  while other SAN's were not as easily reognizable as the company name was not included.
 
 ### Observation 3
-<!-- What did you notice? -->
+I noticed that the certificate viewer provides critical details of a digital certificate.This helps you verify identity, check trust, and troubleshoot HTTPS or PKI-related issues.
 
 ---
 
@@ -60,4 +60,4 @@ Document three observations about the certificate.
 
 Based on your inspection, explain how this certificate contributes to secure HTTPS communication.
 
-(2–3 sentences)
+This Certificate authenticate the server’s identity and provides the public key to securely establish an encrypted session during the TLS handshake. Since this website is primarly retail, the protects customer's data.
