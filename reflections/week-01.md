@@ -20,7 +20,9 @@ Undertanding how encryption works in the process. I know that asymetric increpti
 Public Key Infrastructure (PKI) is a security system that helps protect information when using computers, phones, and the internet. It keeps sensitive data such as usernames, passwords, credit card numbers, and personal information safe. PKI works by creating two keys called a key pair: a public key that encrypts data and a private key that decrypts it. It also uses digital certificates to verify the identity of systems and websites. Overall, PKI helps ensure authentication, encryption, and data integrity during online communication.
 
 6. What questions remain?
-   Question about GetHub folders 
+   Question about GetHub folders
+   Key pair verfication
+   SSL
 
 ---
 
