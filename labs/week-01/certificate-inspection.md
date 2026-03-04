@@ -60,4 +60,4 @@ I noticed that the certificate viewer provides critical details of a digital cer
 
 Based on your inspection, explain how this certificate contributes to secure HTTPS communication.
 
-This Certificate authenticate the server’s identity and provides the public key to securely establish an encrypted session during the TLS handshake. Since this website is primarly retail, the protects customer's data.
+Based off my inspection, the certificate enables secure HTTPS communication by verifying the identity of the web address (homedpot.com) and providing the public key needed to establish encrypted communication of data in transit. The browser validates the certificate using trusted certificate authorities and then uses the public key during the TLS handshake, this creates a secure session. This process ensures authentication, encryption, and data integrity for web communications.
