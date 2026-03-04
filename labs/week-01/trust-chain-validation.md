@@ -16,20 +16,21 @@ Embed the screenshot below:
 ## Website Information
 
 **Website inspected:**  
-<!-- Enter full URL -->
+https://www.homedepot.com/
 
----
 
 ## Certificate Chain Breakdown
 
 **Leaf (Server) Certificate**  
 <!-- Enter Common Name or Subject -->
+www.homedepot.com
 
 **Intermediate Certificate Authority**
 <!-- Enter Intermediate CA name -->
+Fortinet
 
 **Root Certificate Authority (Trust Anchor)**
-<!-- Enter Root CA name -->
+Certificate Authority Digicert
 
 ---
 
@@ -37,9 +38,10 @@ Embed the screenshot below:
 
 Is the Root CA marked as trusted by your system?
 
-<!-- Yes / No -->
+<!-- Yes 
 
 If yes, explain where that trust comes from (OS/browser root store).
+Trust is established in the fortnit is the intermidiate that issue certificates, inspect SSL/TLS traffic. Since it's a thrid party firewallc the trust is established becasue it is built within the sytem.
 
 If no, explain what warning or behavior occurred.
 
