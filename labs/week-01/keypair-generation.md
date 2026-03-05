@@ -11,6 +11,8 @@ If using OpenSSL:
 **assets/screenshots/week-01/keypair-generation.png**
 
 3. Embed the screenshot below:
+<img width="479" height="43" alt="Assets screenshot week-01 keypair-generation" src="https://github.com/user-attachments/assets/b729b215-737d-45b3-95fc-ce0c2dbc993a" />
+
 
 **![Key Pair Generation](../../assets/screenshots/week-01/keypair-generation.png)**
 
