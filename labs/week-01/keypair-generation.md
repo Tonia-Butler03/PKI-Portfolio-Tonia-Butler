@@ -22,10 +22,10 @@ If using a browser-based generator, capture the generated key pair screen (redac
 
 ## Key Identification
 **Which file is the public key?**
-<!-- Example: public.key -->
+128 Dec 17 2018 Public
 
 **Which file is the private key?**
-<!-- Example: private.key -->
+1675 Mar 8 14:38 private.key
 
 ---
 
