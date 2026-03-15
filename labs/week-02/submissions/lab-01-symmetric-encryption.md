@@ -12,7 +12,7 @@ In this lab, I was investigating how symmetric encryption is used to protect dat
 Document the environment used to complete the lab.
 
 - Operating System: Windows OS
-- Terminal Used:Windows Powershell
+- Terminal Used:Windows GIT
 - OpenSSL Version (if applicable):3.44
 
 ---
@@ -23,21 +23,45 @@ Summarize the key steps you performed to complete the lab.
 Do **not copy the lab instructions**.  
 Describe what you actually did.
 
-1.  
-2.  
-3.  
-
+1.First, I creted an artifacts directory using the terminal GIT to crete files for encrypted and decrypted contents.
+2.Next, I convereted plain text into cypiher text, encrypting data and I created a password to protect the confidentiality of the data.
+3.Last, I decrypted the data and used the password to verify and confirm the integrity of the contents, this step confirmed that there was no difference and the contents were authentic.
 ---
 
 ## Results
 Include the important outputs or findings from the lab.
 
-Examples may include:
+Encryption/Plain text
+Tonia@ToniaB03 MINGW64 ~
+$ openssl enc -aes-256-cbc -salt -pbkdf2 -in labs/02-week-02-cryptography-fundamentals/submissions/encrypted/plaintext.txt -out labs/02-week-02-cryptography-fundamentals/sbmissions/encrypted/plaintext.txt.enc
+enter AES-256-CBC encryption password:
 
-- command outputs
-- certificate fields
-- verification results
-- screenshots (if applicable)
+Verifying - enter AES-256-CBC encryption password:
+
+Tonia@ToniaB03 MINGW64 ~
+$ ls labs/02-week-02-cryptography-fundamentals/submissions/encrypted
+plaintext.txt  plaintext.txt.enc
+
+Tonia@ToniaB03 MINGW64 ~
+$ cat labs/02-week-02-cryptography-fundamentals/submissions/encrypted/plaintext.txt.enc
+Salted__F▒▒
+:,SSv9RXa'G    _51$iI|▒+[ ▒▒G*▒▒▒]^fgx&Wu{▒▒&ynw
+
+Decryption
+Tonia@ToniaB03 MINGW64 ~
+$ openssl enc -d -aes-256-cbc -pbkdf2 -in labs/02-week-02-cryptography-fundamentals/submissions/encrypted/plaintext.txt.enc -out labs/02-week-02-cryptography-fundamentals/submissions/encrypted/plaintext.decrypted.txt
+enter AES-256-CBC decryption password:
+
+
+Tonia@ToniaB03 MINGW64 ~
+$ diff labs/02-week-02-cryptography-fundamentals/submissions/encrypted/plaintext.txt labs/02-week-02-cryptography-fundamentals/submissions/encrypted/plaintext.decrypted.txt
+
+Tonia@ToniaB03 MINGW64 ~
+$
+
+Tonia@ToniaB03 MINGW64 ~
+$ ls labs/02-week-02-cryptography-fundamentals/submissions/encrypted
+plaintext.decrypted.txt  plaintext.txt  plaintext.txt.enc
 
 If you include screenshots, store them in the **assets folder** and reference them here.
 
