@@ -1,17 +1,19 @@
-# Lab — [Lab Title]
+# Lab — Symmetric Encryption
 
 ## Overview
-Briefly describe the purpose of this lab in your own words.  
+The purpose of this lab was to understand how symmetric encryption works and how it protects sensitive data. Symmetric encryption uses a single secret key to both encrypt and decrypt information. During the lab, plaintext was converted into unreadable ciphertext and then decrypted back to its original form. This demonstrated how encryption provides confidentiality, which is a key component of the CIA triad and the PKI process.
+
 What PKI concept or system behavior were you investigating?
+In this lab, I was investigating how symmetric encryption is used to protect data confidentiality within cryptography. The lab demonstrated how a single shared key is used to encrypt plaintext into ciphertext and then decrypt it back to its original form. This shows how encryption protects sensitive data and supports secure communication within PKI systems.
 
 ---
 
 ## Environment
 Document the environment used to complete the lab.
 
-- Operating System:
-- Terminal Used:
-- OpenSSL Version (if applicable):
+- Operating System: Windows OS
+- Terminal Used:Windows Powershell
+- OpenSSL Version (if applicable):3.44
 
 ---
 
