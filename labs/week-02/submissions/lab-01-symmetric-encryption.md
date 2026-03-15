@@ -93,12 +93,6 @@ Explain **why the results matter**.
 
 These results matter because symmetric encryption plays a critical role in protecting sensitive data during transmission and storage. AES encryption ensures confidentiality by converting readable plaintext into ciphertext that cannot be understood without the correct key. With TLS, symmetric encryption is used because it is fast and efficient for protecting large amounts of data after a secure key exchange occurs. This process ensures that data remains private and secure between communicating systems.
 
-Examples:
-
-- Why the issuer is important in PKI
-- Why SAN is required for modern TLS validation
-- Why the certificate chain validates successfully
-- Why a misconfiguration would cause a failure
 
 ---
 
