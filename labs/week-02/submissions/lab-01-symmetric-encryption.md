@@ -70,8 +70,7 @@ If you include screenshots, store them in the **assets folder** and reference th
 
 assets/screenshots/Assests screenshot week 02 Decryption.png
 
-
-Example:
+assets/screenshots/Assests screenshot week 02 MKDIR.png
 
 assets/screenshots/Assests screenshot week 02 Encryption.png
 
@@ -80,22 +79,17 @@ assets/screenshots/Assests screenshot week 02 Encryption.png
 ## Key Findings
 Document the most important observations from the lab.
 
-Examples:
 
-- Certificate issuer
-- Public key algorithm used
-- Certificate extensions present
-- Trust chain relationships
-- Validation results
-
-•  
-•  
-•  
+• The key finding was trust in the encryption process, meaning that only the correct password can decrypt the encrypted file.
+• AES-256 encryption successfully transformed readable plaintext into unreadable ciphertext.
+• The encrypted file appeared as random binary data, confirming that the original message was protected
 
 ---
 
 ## Explanation
 Explain **why the results matter**.
+
+These results matter because symmetric encryption plays a critical role in protecting sensitive data during transmission and storage. AES encryption ensures confidentiality by converting readable plaintext into ciphertext that cannot be understood without the correct key. With TLS, symmetric encryption is used because it is fast and efficient for protecting large amounts of data after a secure key exchange occurs. This process ensures that data remains private and secure between communicating systems.
 
 Examples:
 
@@ -108,24 +102,16 @@ Examples:
 
 ## Challenges / Troubleshooting
 Document any issues encountered during the lab and how you resolved them.
+During the lab, a few issues occurred while executing commands in the terminal.
 
-Examples:
+• Initially, OpenSSL commands failed because they were executed in PowerShell where the command formatting was incorrect. This was resolved by installing and using Git Bash.
 
-- command errors
-- missing intermediate certificates
-- verification failures
+• A password verification error occurred during encryption because the password entered during verification did not match the original password. Re-running the command and entering the same password resolved the issue.
 
 ---
 
 ## Artifacts
 List the files generated during this lab.
-
-Examples:
-
-- leaf_cert.pem
-- server.pem
-- intermediate.pem
-- root.pem
 - screenshots stored in assets/
 
 ---
