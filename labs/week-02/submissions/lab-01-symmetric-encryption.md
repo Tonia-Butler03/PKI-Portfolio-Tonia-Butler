@@ -81,7 +81,9 @@ Document the most important observations from the lab.
 
 
 • The key finding was trust in the encryption process, meaning that only the correct password can decrypt the encrypted file.
+
 • AES-256 encryption successfully transformed readable plaintext into unreadable ciphertext.
+
 • The encrypted file appeared as random binary data, confirming that the original message was protected
 
 ---
