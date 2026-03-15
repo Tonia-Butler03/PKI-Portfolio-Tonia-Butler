@@ -73,7 +73,7 @@ assets/screenshots/Assests screenshot week 02 Decryption.png
 
 Example:
 
-![Certificate Output](assets/certificate-output.png)
+assets/screenshots/Assests screenshot week 02 Encryption.png
 
 ---
 
