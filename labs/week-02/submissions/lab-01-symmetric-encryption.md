@@ -68,6 +68,9 @@ plaintext.decrypted.txt  plaintext.txt  plaintext.txt.enc
 
 If you include screenshots, store them in the **assets folder** and reference them here.
 
+assets/screenshots/Assests screenshot week 02 Decryption.png
+
+
 Example:
 
 ![Certificate Output](assets/certificate-output.png)
