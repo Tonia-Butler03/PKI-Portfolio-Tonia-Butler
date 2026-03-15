@@ -23,9 +23,12 @@ Summarize the key steps you performed to complete the lab.
 Do **not copy the lab instructions**.  
 Describe what you actually did.
 
-1.First, I creted an artifacts directory using the terminal GIT to crete files for encrypted and decrypted contents.
+1.First, I creted an artifacts directory and a brnach of the CVI Labs. I orginally used Powershell for the CVI process, then I used the terminal GIT becasue the commands were to long on PS causing errors. I transtioned to GIT to crete files for encrypted and decrypted contents.
+
 2.Next, I convereted plain text into cypiher text, encrypting data and I created a password to protect the confidentiality of the data.
+
 3.Last, I decrypted the data and used the password to verify and confirm the integrity of the contents, this step confirmed that there was no difference and the contents were authentic.
+
 ---
 
 ## Results
