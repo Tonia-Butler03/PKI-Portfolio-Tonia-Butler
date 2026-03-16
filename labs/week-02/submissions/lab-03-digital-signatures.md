@@ -1,47 +1,45 @@
-# Lab — [Lab Title]
+# Lab — Digital Signatures
 
 ## Overview
-Briefly describe the purpose of this lab in your own words.  
+Briefly describe the purpose of this lab in your own words. 
+The purpose of this lab was to understand how digital signatures protect data by ensuring integrity and authenticity. In this lab, I generated a key pair, signed a file with a private key, and verified the signature using the corresponding public key. I also observed how modifying the file caused the verification process to fail. This lab showed how digital signatures detect tampering and confirm the identity of the signer.
+
 What PKI concept or system behavior were you investigating?
+The PKI concept in this lab confirmed that digital signatures use hashing and asymmetric cryptography to verify the integrity and authenticity of data. This same process is used in the PKI process when Certificate Authorities sign digital certificates to establish trust.
 
 ---
 
 ## Environment
 Document the environment used to complete the lab.
 
-- Operating System:
-- Terminal Used:
-- OpenSSL Version (if applicable):
+- Operating System:Windows
+- Terminal Used:GIT
+- OpenSSL Version (if applicable):3.4.4
 
 ---
 
 ## Steps Performed
 Summarize the key steps you performed to complete the lab.
 
-Do **not copy the lab instructions**.  
-Describe what you actually did.
 
-1.  
-2.  
-3.  
+1. First, I created a directory in my repository to store the files for the digital signature lab.
 
----
+2. Then, I created a text file that would act as the artifact to be signed.
+
+3. Next, using OpenSSL, I generated an RSA private key and then extracted the corresponding public key.
+
+4. I used the private key to create a digital signature for the text file.
+
+5. I verified the signature using the public key and confirmed that the verification was successful.
+
+6. Finally, I modified the file and ran the verification again the signature validation failed after the file was tampered with.
+   
+
 
 ## Results
 Include the important outputs or findings from the lab.
 
-Examples may include:
 
-- command outputs
-- certificate fields
-- verification results
-- screenshots (if applicable)
-
-If you include screenshots, store them in the **assets folder** and reference them here.
-
-Example:
-
-![Certificate Output](assets/certificate-output.png)
 
 ---
 
