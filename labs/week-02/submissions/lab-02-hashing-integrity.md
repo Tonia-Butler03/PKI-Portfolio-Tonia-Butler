@@ -21,9 +21,6 @@ Document the environment used to complete the lab.
 ## Steps Performed
 Summarize the key steps you performed to complete the lab.
 
-Do **not copy the lab instructions**.  
-Describe what you actually did.
-
 1. First, I created a directory within the lab repository to store the hashing artifacts and generated a test file containing a short message. 
 2. Next, I used OpenSSL to generate a SHA-256 hash of the file and saved the hash output for reference. 
 3. Last, I modified the contents of the file and generated a second SHA-256 hash, this showed how the hash value changed. 
