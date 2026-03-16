@@ -43,6 +43,8 @@ assets/screenshots/Assests screenshot week 02 MKDIR-Digital Signatures.png
 
 assets/screenshots/Assests screenshot week 02 Private Key-Digital Signatures.png
 
+assets/screenshots/Assests screenshot week 02 Public Key-Verifed Digital Signatures.png
+
 
 
 ---
