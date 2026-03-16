@@ -36,58 +36,34 @@ assets/screenshots/Assests screenshot week 02 Hashing-Tampered.png
 
 assets/screenshots/Assests screenshot week 02 Hashing-Text.png
 
+assets/screenshots/Assests screenshot week 02 MKDIR-Hashing.png
 
 ---
 
 ## Key Findings
 Document the most important observations from the lab.
 
-Examples:
+•  The SHA-256 hash produced a fixed-length hexadecimal value that served as a digital fingerprint for the file.
 
-- Certificate issuer
-- Public key algorithm used
-- Certificate extensions present
-- Trust chain relationships
-- Validation results
-
-•  
-•  
-•  
+•  When comparing the two hash outputs it was confirmed that even a small change to a file results in different hash values, this highlight the effect of cryptographic hashing.
 
 ---
 
 ## Explanation
 Explain **why the results matter**.
 
-Examples:
-
-- Why the issuer is important in PKI
-- Why SAN is required for modern TLS validation
-- Why the certificate chain validates successfully
-- Why a misconfiguration would cause a failure
+These results matter because cryptographic hashing is used to verify data integrity in PKI systems. If a file or message is altered, the hash value changes, allowing systems to detect tampering. This process is used in digital signatures, certificates, and software verification to ensure that data has not been modified and to ensure integrity.
 
 ---
 
 ## Challenges / Troubleshooting
 Document any issues encountered during the lab and how you resolved them.
 
-Examples:
-
-- command errors
-- missing intermediate certificates
-- verification failures
-
----
+One challenge that I encountered during the lab was receiving a “No such file or directory” error when attempting to generate the hash. This occurred because the command was executed from the wrong directory. The issue was resolved by connecting the correct folder to the repository before running the OpenSSL command.
 
 ## Artifacts
 List the files generated during this lab.
 
-Examples:
-
-- leaf_cert.pem
-- server.pem
-- intermediate.pem
-- root.pem
 - screenshots stored in assets/
 
 ---
