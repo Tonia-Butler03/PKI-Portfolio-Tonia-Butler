@@ -41,6 +41,8 @@ Include the important outputs or findings from the lab.
 
 assets/screenshots/Assests screenshot week 02 MKDIR-Digital Signatures.png
 
+assets/screenshots/Assests screenshot week 02 Private Key-Digital Signatures.png
+
 
 
 ---
