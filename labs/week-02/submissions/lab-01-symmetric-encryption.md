@@ -34,6 +34,10 @@ Describe what you actually did.
 ## Results
 Include the important outputs or findings from the lab.
 
+![Encryption] (assets/screenshots/Assests screenshot week 02 Encryption.png)
+
+
+
 Encryption/Plain text
 Tonia@ToniaB03 MINGW64 ~
 $ openssl enc -aes-256-cbc -salt -pbkdf2 -in labs/02-week-02-cryptography-fundamentals/submissions/encrypted/plaintext.txt -out labs/02-week-02-cryptography-fundamentals/sbmissions/encrypted/plaintext.txt.enc
