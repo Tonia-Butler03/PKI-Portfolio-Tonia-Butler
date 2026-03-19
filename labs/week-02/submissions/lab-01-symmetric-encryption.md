@@ -34,7 +34,7 @@ Describe what you actually did.
 ## Results
 Include the important outputs or findings from the lab.
 
-![Encryption] (assets/screenshots/Assests screenshot week 02 Encryption.png)
+![Encryption](assets/screenshots/Assests screenshot week 02 Encryption.png)
 
 
 
