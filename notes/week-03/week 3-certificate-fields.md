@@ -1,4 +1,4 @@
-# Week X Lesson Notes — lab-01-certificate-fields
+# Week 3 Lesson Notes — 01-certificate-fields
 
 ## 1. Core Concept
 
