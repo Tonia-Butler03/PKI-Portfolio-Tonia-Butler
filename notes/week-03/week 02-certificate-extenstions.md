@@ -1,4 +1,4 @@
-# Week X Lesson Notes — lab-02-certificate-extenstions
+# Week 3 Lesson Notes — 02-certificate-extenstions
 
 ## 1. Core Concept
 
