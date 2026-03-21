@@ -1,4 +1,4 @@
-# Week 3 Lesson Notes — 02-certificate-extenstions
+# Week 3 Lesson Notes — certificate-extenstions
 
 ## 1. Core Concept
 
