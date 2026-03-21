@@ -2,7 +2,8 @@
 
 
 ## Overview
-Briefly describe the purpose of this lab in your own words.  
+Briefly describe the purpose of this lab in your own words.
+
 What PKI concept or system behavior were you investigating?
 
 ---
@@ -10,14 +11,15 @@ What PKI concept or system behavior were you investigating?
 ## Environment
 Document the environment used to complete the lab.
 
-- Operating System:
-- Terminal Used:
-- OpenSSL Version (if applicable):
+- Operating System:Windows
+- Terminal Used:Bash
+- OpenSSL Version (if applicable):3.4.4
 
 ---
 
 ## Steps Performed
-Summarize the key steps you performed to complete the lab.
+First, I pulled a certificate from a live website google.com I used OpenSSL to read it.
+This helps you understand how certificates actually look and how identity is verified in PKI.
 
 Do **not copy the lab instructions**.  
 Describe what you actually did.
@@ -29,20 +31,8 @@ Describe what you actually did.
 ---
 
 ## Results
-Include the important outputs or findings from the lab.
 
-Examples may include:
-
-- command outputs
-- certificate fields
-- verification results
-- screenshots (if applicable)
-
-If you include screenshots, store them in the **assets folder** and reference them here.
-
-Example:
-
-![Certificate Output](assets/certificate-output.png)
+![Certificate Output](Assesets Sceentshot week 03 identity & trust attributes.png)
 
 ---
 
