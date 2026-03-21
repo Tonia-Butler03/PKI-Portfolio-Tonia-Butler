@@ -1,4 +1,4 @@
-# Week 3 Lesson Notes — 01-certificate-fields
+# Week 3 Lesson Notes — 02-certificate-fields
 
 ## 1. Core Concept
 
