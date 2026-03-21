@@ -1,4 +1,4 @@
-# Week 3 Lesson Notes — certificate-chain
+# Week 3 Lesson Notes —3-certificate-chain
 
 ## 1. Core Concept
 
