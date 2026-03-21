@@ -1,4 +1,4 @@
-# Week X Lesson Notes —certificate-misconfigurations
+# Week 3 Lesson Notes —certificate-misconfigurations
 
 ## 1. Core Concept
 
