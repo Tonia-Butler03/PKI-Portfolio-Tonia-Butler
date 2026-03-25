@@ -17,33 +17,16 @@ Document the environment used to complete the lab.
 
 ## Steps Performed
 Summarize the key steps you performed to complete the lab.
-
-Do **not copy the lab instructions**.  
-Describe what you actually did.
-
-1.  
-2.  
-3.  
+First, I created the submissions file in my repository and documented my analysis for each misconfiguration scenario. 
+Next, I reviewed each certificate, including missing SAN, incorrect EKU, expired certificates, and missing intermediate, and determined why each one would fail validation. 
+Then, I connected each issue to the specific TLS validation rule being violated. 
+Finally, I saved the file and pushed it to GitHub.
 
 ---
 
 ## Results
-Include the important outputs or findings from the lab.
+The results showed that each misconfiguration caused certificate validation to fail for a specific reason. These findings showed how strict TLS validation is and how small configuration issues can prevent secure connections.
 
-Examples may include:
-
-- command outputs
-- certificate fields
-- verification results
-- screenshots (if applicable)
-
-If you include screenshots, store them in the **assets folder** and reference them here.
-
-Example:
-
-![Certificate Output](assets/certificate-output.png)
-
----
 
 ## Key Findings
 -A certificate without a Subject Alternative Name (SAN) can fail hostname validation in modern TLS.
