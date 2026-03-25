@@ -18,8 +18,11 @@ Document the environment used to complete the lab.
 ## Steps Performed
 Summarize the key steps you performed to complete the lab.
 First, I created the submissions file in my repository and documented my analysis for each misconfiguration scenario. 
+
 Next, I reviewed each certificate, including missing SAN, incorrect EKU, expired certificates, and missing intermediate, and determined why each one would fail validation. 
+
 Then, I connected each issue to the specific TLS validation rule being violated. 
+
 Finally, I saved the file and pushed it to GitHub.
 
 ---
@@ -30,8 +33,11 @@ The results showed that each misconfiguration caused certificate validation to f
 
 ## Key Findings
 -A certificate without a Subject Alternative Name (SAN) can fail hostname validation in modern TLS.
+
 -An incorrect Extended Key Usage (EKU) can make a certificate invalid for server authentication.
+
 -An expired certificate fails validation because it is no longer within its trusted date range.
+
 -Broken certificate conditions, such as hostname mismatch or chain issues, prevent the client from trusting the certificate.
 
 ---
