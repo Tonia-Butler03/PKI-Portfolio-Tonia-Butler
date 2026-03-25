@@ -1,100 +1,66 @@
 # Lab — 02-certificate-extenstions
 
 ## Overview
-Briefly describe the purpose of this lab in your own words.  
-What PKI concept or system behavior were you investigating?
-
----
-
+The purpose of this lab was to understand how X.509 certificate extensions work and how they control how a certificate is used. I reviwed a real certificate to identify key extensions like SAN, Key Usage, and Extended Key Usage. This helped me see how certificates are validated and used in secure communication.
+  
+In this lab, I was investigating how certificate extensions define the rules and behavior of a certificate within a PKI system. I focused on how extensions like SAN, Key Usage, and Basic Constraints impact TLS validation and determine whether a certificate is trusted. This shows how PKI enforces security by controlling how certificates can be used. 
+  
+  
+  
 ## Environment
 Document the environment used to complete the lab.
 
-- Operating System:
-- Terminal Used:
-- OpenSSL Version (if applicable):
+- Operating System:Windows
+- Terminal Used:Git Bash
+- OpenSSL Version (if applicable):3.4.4
 
 ---
 
-## Steps Performed
-Summarize the key steps you performed to complete the lab.
+Steps Performed
 
-Do **not copy the lab instructions**.  
-Describe what you actually did.
+1. I used OpenSSL to inspect the certificate that I previously retrieved and converted it into a readable format using the -text -noout command.
+2. I reviewed the certificate output and located the X509v3 extensions section to identify key extensions like SAN, Key Usage, Extended Key Usage, and Basic Constraints.
+3. I analyzed each extension to understand its purpose. The Subject Alternative Name (SAN) showed the domains the certificate is valid for, this is used during TLS validation. The Key Usage defined how the certificate can be perform, such as digital signatures. The Extended Key Usage specified that the certificate is used for TLS web server authentication. 
 
-1.  
-2.  
-3.  
 
----
 
 ## Results
-Include the important outputs or findings from the lab.
 
-Examples may include:
 
-- command outputs
-- certificate fields
-- verification results
-- screenshots (if applicable)
-
-If you include screenshots, store them in the **assets folder** and reference them here.
-
-Example:
-
-![Certificate Output](assets/certificate-output.png)
+![Certificate Output](assets sceentshot week 03-lab-02-certificate-extenstion.png)
 
 ---
 
 ## Key Findings
-Document the most important observations from the lab.
 
-Examples:
+• The certificate was issued by Google Trust Services, which acts as the Certificate Authority.
 
-- Certificate issuer
-- Public key algorithm used
-- Certificate extensions present
-- Trust chain relationships
-- Validation results
+• The public key algorithm used is Elliptic Curve (EC) with a 256-bit key, showing modern and faster encryption.
 
-•  
-•  
-•  
+• The certificate includes important extensions such as Subject Alternative Name (SAN), Key Usage, and Extended Key Usage.
 
----
+• The SAN field contains multiple domains like *.google.com, confirming the certificate supports many services.
+
+• The Basic Constraints shows CA:FALSE, meaning this is a leaf certificate and cannot issue other certificates.
+
+• The Extended Key Usage confirms the certificate is used for authentication, supporting secure HTTPS connections.
+ 
 
 ## Explanation
-Explain **why the results matter**.
 
-Examples:
-
-- Why the issuer is important in PKI
-- Why SAN is required for modern TLS validation
-- Why the certificate chain validates successfully
-- Why a misconfiguration would cause a failure
+These results matter because they show how trust and validation work in PKI systems. The issuer is important because it represents a trusted Certificate Authority that verifies the identity of the certificate. The SAN field is required for TLS validation because the browsers checks it to confirm the certificate matches the domain that a user is accessing. If the extension is misconfigured, the certificate could fail and the connection would not be secure.
 
 ---
 
 ## Challenges / Troubleshooting
-Document any issues encountered during the lab and how you resolved them.
 
-Examples:
+During this lab, I initially ran into permission errors when trying to create directories because I was working from the root directory instead of my local repository. I resolved this by navigating to the correct GitHub project folder before running my commands. I also had to adjust file paths since I had previously moved the certificate to a different folder, which caused some “file not found” errors. Once I corrected the paths and confirmed my working directory, the commands executed successfully and I was able to complete the lab.
 
-- command errors
-- missing intermediate certificates
-- verification failures
-
----
 
 ## Artifacts
-List the files generated during this lab.
-
-Examples:
-
-- leaf_cert.pem
-- server.pem
-- intermediate.pem
-- root.pem
-- screenshots stored in assets/
+leaf_cert.pem (copied and reused from Lab 01 for extension analysis)
+certificate-extensions.md (analysis of certificate extensions)
+Screenshot of OpenSSL certificate output stored in the assets folder
 
 ---
 
