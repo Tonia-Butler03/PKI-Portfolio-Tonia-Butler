@@ -15,8 +15,8 @@ The most challenging concept was understanding how all the certificate fields an
 3. Where does this concept appear in real-world systems?
 This concept appears anytime we use HTTPS, access secure websites, or connect to systems that require encryption. Browsers, APIs, enterprise systems all rely on certificate validation to establish trust. Misconfigurations like expired certificates or missing intermediates can cause outages. This is why companies have strict certificate management processes and PKI skills are valuable. 
    
-4. How would you explain this topic to a non-technical audience?
-I would explain it as a a process to verify that a website or system is really who it says it is before sharing any information. Certificates are like digital IDs, and the system checks them before allowing a secure connection. If something is missing or incorrect, the system blocks the connection to keep you safe. It’s similar to showing proper identification before entering a secure building or a club. 
+4. How would you explain this topic to a non-technical audience? 
+I would explain  that certificates are like digital IDs, and the system checks these Id's before allowing a secure connection. If something is missing or incorrect, the system blocks the connection to keep you/systems/API;s safe. It’s similar to showing proper identification before entering a secure building or differnt VIP levels at a club. 
    
 7. What questions remain?
 
