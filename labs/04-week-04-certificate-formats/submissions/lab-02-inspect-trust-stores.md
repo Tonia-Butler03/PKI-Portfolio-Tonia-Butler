@@ -1,110 +1,69 @@
-# Lab — [Lab Title]
+# Lab —02-inspect-trust-stores
 
 ## Overview
-Briefly describe the purpose of this lab in your own words.
-The purpose of this lab was to understand where trusted root certificates are stored on an operating system and how that trust store supports certificate validation. I investigated how the OS keeps a list of trusted root Certificate Authorities, how to view those certificates, and how that trust affects whether a certificate is accepted or rejected. This lab helped connect the idea of a “trusted root” to real systems like browsers, servers, and secure websites.
-What PKI concept or system behavior were you investigating?
+The purpose of this lab was to understand how my operating system manages trusted root certificates and how that trust store is used during certificate validation. I explored where trusted Certificate Authorities are stored, how to inspect them, and how they relate to real-world secure connections. This lab focused on how trust is established in PKI and how systems decide whether to trust a certificate. My fininding were based of the use of my windows opertaing sytem.
 
 ---
 
 ## Steps Performed
 
-I located the trust store for my operating system and opened the area where trusted root certificates are stored. I then reviewed the list of trusted root CAs already installed by default and selected one certificate to inspect more closely. After that, I looked at the certificate details such as subject, issuer, validity period, and fingerprint to better understand why it is trusted. Finally, I connected what I saw in the trust store to how a browser or operating system validates a website certificate during a TLS connection.
-Summarize the key steps you performed to complete the lab.
-
-Do **not copy the lab instructions**.
-Describe what you actually did.
-
-1.
-2.
-3.
+1. First, I navigated to my GitHub repository and created the artifact directory for the lab.
+2. Second, I opened the Windows Certificate Manager using certmgr.msc and located the Trusted Root Certification Authorities store.
+3. Next, I reviewed the list of trusted root CAs and counted the total number of certificates.
+4. Then, I selected a root certificate and inspected its details such as subject, issuer, validity period, and public key algorithm.
+5. I used PowerShell to run certutil -store Root | Select-String "CN=" to view the list of trusted root CA names.
+6. Finally, I used OpenSSL to connect to google.com and validate its certificate against my system trust store.
 
 ---
 
 ## Results
-Include the important outputs or findings from the lab.
 
-Examples may include:
+The windows system trust store contained 39 trusted root Certificate Authorities.
+Example root CA details:
+Subject: AAA Certificate Services, Comando CA Limited
+Issuer: AAA Certificate Services, Comando CA Limited 
+Valid From/Valid to: Wednesday, December 31, 2003 8:00:00 PM
+Sunday, December 31, 2028 7:59:59 PM
+Public key algorithm RSA (2048 Bits)
 
-- Command outputs
-- Certificate fields or values
-- Verification results
-- Screenshots (if applicable)
 
-If you include screenshots, store them in `assets/screenshots/` at the root of your repo and reference them here.
-
-**How to embed an image:**
-
-**Option A — Terminal / Local Editor**
-
-Save your screenshot to `assets/screenshots/` in your repo, then reference it using a relative path from your submission file:
-
-```markdown
-![Description of your screenshot](../../../assets/screenshots/your-filename.png)
+![Root Certificate Details](../../../assets/screenshots/root-certificate-details-week-04.png)
+```
+![Verification Output](../../../assets/screenshots/verification-output-week-04.png)
 ```
 
-> The `../../../` moves up three levels: `submissions/` → `week-03/` → `labs/` → repo root, then into `assets/screenshots/`.
 
-**Option B — GitHub Web (Easiest)**
-
-Open your `.md` file on GitHub, click the pencil icon to edit, then **drag and drop your image directly into the text editor**. GitHub will upload it automatically and insert the correct link for you.
-
-Example of what an embedded image looks like:
-
-```markdown
-![Certificate output showing SAN field](../../../assets/screenshots/san-field.png)
-```
-
----
 
 ## Key Findings
-Document the most important observations from the lab.
+-The trust store contains root certificates that act as trust anchors for certificate validation.
 
-Examples:
+-Root CA certificates are self-signed, meaning the subject and issuer are the same.
 
-- What you discovered about the certificate, key, or protocol
-- How a specific field or extension affected the outcome
-- What a validation result indicated
-- Any unexpected behavior or results
+-Certificate validation depends on building a chain from the server certificate back to a trusted root CA.
 
--
--
--
+-The system automatically trusts certificates that chain to a root CA in the trust store.
 
----
 
 ## Explanation
-Explain **why the results matter**.
-
-Examples:
-
-- Why a specific field or extension is required
-- Why a validation succeeded or failed
-- What the result means in a real-world PKI context
-- How this connects to the week's learning outcomes
+These results matter because the trust store is what determines whether a secure connection is allowed or rejected. When a certificate is presented during a TLS connection, the system checks if it can trace the certificate back to a trusted root CA. If that trust chain exists and is valid, the connection is accepted. This is how browsers and operating systems ensure secure communication across the internet.
 
 ---
 
 ## Challenges / Troubleshooting
-Document any issues encountered during the lab and how you resolved them.
+One issue I encountered was trying to run certmgr.msc in Git Bash, which resulted in a error because it is a Windows tool. I resolved this by launching it using the Run dialog instead. I also had some confusion with file paths due to OneDrive redirecting my Documents folder, but I was able to locate the correct GitHub repository path and continue the lab.
 
-Examples:
-
-- Command errors
-- Missing files or dependencies
-- Verification failures and how you diagnosed them
-
----
 
 ## Artifacts
-List the files generated or submitted during this lab.
+leaf_cert
+leaf_cert.pem
+leaf_cert_restored.pem
+test_bundles
+test_cert.pem
+test.key.pem
+verification-output-week-04.png
+root-certificate-details-week-04.png
+lab-02-inspect-trust-stores.md
 
-Examples:
 
-- Any `.pem`, `.crt`, or `.key` files produced
-- Your completed lab write-up `.md` file
-- Screenshots stored in `assets/screenshots/`
-
----
 
 *CVI PKI Career Pathway — Foundations Phase*
