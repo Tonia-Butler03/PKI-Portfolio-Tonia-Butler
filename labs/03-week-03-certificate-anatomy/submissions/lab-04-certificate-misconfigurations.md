@@ -28,6 +28,15 @@ Finally, I saved the file and pushed it to GitHub.
 ---
 
 ## Results
+
+-  Hostname validation fails because modern TLS clients rely on the Subject Alternative Name instead of the Common Name.
+
+- The certificate is rejected because it is not valid for TLS Web Server Authentication.
+
+- The certificate fails validation because it is outside of its valid date range.
+
+- The chain cannot be completed to a trusted root, so the certificate is not trusted.
+  
 The results showed that each misconfiguration caused certificate validation to fail for a specific reason. These findings showed how strict TLS validation is and how small configuration issues can prevent secure connections.
 
 
