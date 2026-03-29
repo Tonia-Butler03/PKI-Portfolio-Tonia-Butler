@@ -62,6 +62,9 @@ One challenge in this lab was keeping track of which field caused the validation
 
 ## Artifacts
 
+- lab-04-certificate-misconfigurations.md  
+- Week 3 screenshots  
+- OpenSSL command outputs used during analysis  
 
 ---
 
