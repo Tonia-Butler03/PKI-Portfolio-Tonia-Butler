@@ -27,7 +27,7 @@ Steps Performed
 ## Results
 
 
-![Certificate Output](assets sceentshot week 03-lab-02-certificate-extenstion.png)
+![Certificate Output](../../assets/screenshots/week-03/lab-02-certificate-extensions.png)
 
 ---
 
