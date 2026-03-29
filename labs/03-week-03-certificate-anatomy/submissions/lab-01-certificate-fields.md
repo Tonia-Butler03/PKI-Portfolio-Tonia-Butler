@@ -28,8 +28,8 @@ Document the environment used to complete the lab.
 ---
 
 ## Results
+![Certificate Output](../../assets/screenshots/week-03/identity-trust-attributes.png)
 
-![Certificate Output](assets sceentshot week 03 identity & trust attributes.png)
 
 ---
 
