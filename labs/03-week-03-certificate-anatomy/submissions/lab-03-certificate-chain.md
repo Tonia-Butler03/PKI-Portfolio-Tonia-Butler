@@ -28,7 +28,7 @@ Document the environment used to complete the lab.
 
 The key outputs included the OpenSSL command results showing the certificate chain for github.com. I observed important fields such as the subject (CN=github.com), issuer (Sectigo intermediate), and the root authority (USERTrust). The verification result showed server.pem: OK when using the intermediate certificate, confirming the chain was valid. This demonstrated how the certificate chain successfully links back to a trusted root.
 
-
+![Certificate Chain Output](../../assets/screenshots/week-03/lab-03-certificate-chain.png)
 
 ## Key Findings
 
