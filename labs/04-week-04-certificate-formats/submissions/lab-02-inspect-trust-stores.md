@@ -1,5 +1,4 @@
-# Lab —02-inspect-trust-stores
-
+# Lab 02 — Inspect Trust Stores
 ## Overview
 The purpose of this lab was to understand how my operating system manages trusted root certificates and how that trust store is used during certificate validation. I explored where trusted Certificate Authorities are stored, how to inspect them, and how they relate to real-world secure connections. This lab focused on how trust is established in PKI and how systems decide whether to trust a certificate. My fininding were based of the use of my windows opertaing sytem.
 
@@ -20,8 +19,8 @@ The purpose of this lab was to understand how my operating system manages truste
 
 The windows system trust store contained 39 trusted root Certificate Authorities.
 Example root CA details:
-Subject: AAA Certificate Services, Comando CA Limited
-Issuer: AAA Certificate Services, Comando CA Limited 
+Subject: AAA Certificate Services, Comodo CA Limited
+Issuer: AAA Certificate Services, Comodo CA Limited 
 Valid From/Valid to: Wednesday, December 31, 2003 8:00:00 PM
 Sunday, December 31, 2028 7:59:59 PM
 Public key algorithm RSA (2048 Bits)
@@ -54,14 +53,10 @@ One issue I encountered was trying to run certmgr.msc in Git Bash, which resulte
 
 
 ## Artifacts
-leaf_cert
-leaf_cert.pem
-leaf_cert_restored.pem
-test_bundles
-test_cert.pem
-test.key.pem
-verification-output-week-04.png
-root-certificate-details-week-04.png
+- root-certificate-details-week-04.png  
+- verification-output-week-04.png  
+- lab-02-inspect-trust-stores.md 
+
 lab-02-inspect-trust-stores.md
 
 
