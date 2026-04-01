@@ -18,7 +18,7 @@ I was investigating how certificate formats work within PKI and how they can be 
 ---
 
 ## Results
-![Format Conversion](../../../assets/screenshots/week-04/lab-01-format-conversion.png)
+![Format Conversion](../../../assets/screenshots/lab-01-format-conversion.png)
 
 The OpenSSL commands successfully retrieved and displayed the certificate details, including  (google.com), issuer (Google Trust Services), validity dates, and public key information. The PEM certificate was readable and showed the BEGIN and END markers, while the DER version appeared unreadable in a text editor but was successfully parsed using OpenSSL. The conversion from PEM to DER and back to PEM was verified using the diff command, which showed no differences, confirming the certificate data remained unchanged. Finally, the PFX bundle was created and verified, confirming it contained both the certificate and private key and required a password for verification.
 
