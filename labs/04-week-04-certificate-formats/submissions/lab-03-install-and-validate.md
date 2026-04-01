@@ -1,4 +1,4 @@
-# Lab — lab-03-install-and-validate
+# Lab —03 install and validate
 
 
 ## Overview
@@ -67,7 +67,7 @@ I also had some confusion with file paths and nested repository folders, which c
 ## Artifacts
 
 test-root-ca.crt — self-signed root CA certificate
-test-signed.csr — certificate signing request
+test-signed.crt — certificate signing request
 lab-03-install-and-validate.md
 Screenshots stored in `assets/screenshots/`
 
