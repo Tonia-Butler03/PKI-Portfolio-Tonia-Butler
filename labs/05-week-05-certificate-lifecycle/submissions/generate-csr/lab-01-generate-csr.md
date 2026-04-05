@@ -1,32 +1,28 @@
 # Lab 01 — Generate a CSR and Simulate the Issuance Workflow
 
 ## Overview
-Briefly describe the purpose of this lab in your own words.
-What PKI concept or system behavior were you investigating?
+In this lab, I simulated the certificate issuance process by generating a private key, creating a Certificate Signing Request (CSR), and issuing a self-signed certificate using OpenSSL.
+
+The objective was to understand how identity is established in Public Key Infrastructure (PKI), specifically how a subject proves ownership of a private key and requests a certificate from a Certificate Authority (CA). This lab focused on the relationship between cryptographic keys, identity factors, and the trust model used in certificate-authentication.
 
 ---
 
 ## Steps Performed
-Summarize the key steps you performed to complete the lab.
+1. First, I generated a private key using OpenSSL to establish a secure identity.
+2. Then, I created a CSR using the private key and defined subject details (Common Name, Organization, Country).
+3. Next, I used the private key to self-sign the CSR and generate a certificate.
+4. Last, I inspected the certificate to review subject, issuer, and validity details.
 
-Do **not copy the lab instructions**.
-Describe what you actually did.
-
-1.
-2.
-3.
-
----
 
 ## Results
-Include the important outputs or findings from the lab.
 
-Examples may include:
-
-- Command outputs
-- Certificate fields or values
-- Verification results
-- Screenshots (if applicable)
+-Successfully generated a private key and CSR.
+-Created a self-signed certificate using the CSR.
+-Verified certificate details using OpenSSL:
+-Subject: identifies the entity (e.g., domain or system)
+-Issuer: same as subject (self-signed)
+-Validity window: defined certificate lifetime
+-Confirmed that the certificate structure matches X.509 format.
 
 If you include screenshots, store them in `assets/screenshots/` at the root of your repo and reference them here.
 
@@ -37,7 +33,13 @@ If you include screenshots, store them in `assets/screenshots/` at the root of y
 Save your screenshot to `assets/screenshots/` in your repo, then reference it using a relative path from your submission file:
 
 ```markdown
-![Description of your screenshot](../../../assets/screenshots/your-filename.png)
+![Description of your screenshot](../../../assets/screenshots/test-confirmed-key.png)
+```
+![Description of your screenshot](../../../assets/screenshots/test-confirmed-key.png)
+```
+![Description of your screenshot](../../../assets/screenshots/test-confirmed-key.png)
+```
+![Description of your screenshot](../../../assets/screenshots/test-confirmed-key.png)
 ```
 
 > The `../../../` moves up three levels: `submissions/` → `week-03/` → `labs/` → repo root, then into `assets/screenshots/`.
