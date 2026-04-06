@@ -16,55 +16,37 @@ The objective was to understand how identity is established in Public Key Infras
 
 ## Results
 
--Successfully generated a private key and CSR.
--Created a self-signed certificate using the CSR.
--Verified certificate details using OpenSSL:
--Subject: identifies the entity (e.g., domain or system)
--Issuer: same as subject (self-signed)
--Validity window: defined certificate lifetime
--Confirmed that the certificate structure matches X.509 format.
+-The private key was successfully generated and stored locally.
+-A CSR was created containing the subject identity information
+-The associated public key derived from the private key
+-A self-signed certificate was issued with the following characteristics:
+Subject and Issuer fields are identical, indicating no external CA signed the certificate
+-Public key algorithm: RSA (2048-bit)
+-Signature algorithm: SHA256 with RSA
+-Defined validity window (Not Before / Not After)
+-Certificate inspection confirmed that the CSR data was embedded into the final certificate.
 
-If you include screenshots, store them in `assets/screenshots/` at the root of your repo and reference them here.
 
-**How to embed an image:**
-
-**Option A — Terminal / Local Editor**
-
-Save your screenshot to `assets/screenshots/` in your repo, then reference it using a relative path from your submission file:
-
-```markdown
-![Description of your screenshot](../../../assets/screenshots/test-confirmed-key.png)
+![diff](../../../assets/screenshots/test_diff.png)
 ```
-![Description of your screenshot](../../../assets/screenshots/test-confirmed-key.png)
+![validity](../../../assets/screenshots/test_vailditiy_period.png)
 ```
-![Description of your screenshot](../../../assets/screenshots/test-confirmed-key.png)
+![csr](../../../assets/screenshots/test_csr.pem.png)
 ```
-![Description of your screenshot](../../../assets/screenshots/test-confirmed-key.png)
+![cert](../../../assets/screenshots/test_cert.pem.png)
 ```
-
-> The `../../../` moves up three levels: `submissions/` → `week-03/` → `labs/` → repo root, then into `assets/screenshots/`.
-
-**Option B — GitHub Web (Easiest)**
-
-Open your `.md` file on GitHub, click the pencil icon to edit, then **drag and drop your image directly into the text editor**. GitHub will upload it automatically and insert the correct link for you.
-
-Example of what an embedded image looks like:
-
-```markdown
-![Certificate output showing SAN field](../../../assets/screenshots/san-field.png)
-```
-
----
 
 ## Key Findings
-Document the most important observations from the lab.
 
-Examples:
+The CSR is a structured request that binds identity attributes to a public key, but it does not establish trust on its own.
 
-- What you discovered about the certificate, key, or protocol
-- How a specific field or extension affected the outcome
-- What a validation result indicated
-- Any unexpected behavior or results
+The private key is never transmitted it remains local, and it is proof of ownership during certificate issuance.
+
+In a self-signed certificate, the issuing authority is the same as the subject, and it bypasses the external trust model.
+
+The certificate signature provides integrity and authenticity by linking the issuer to the subject’s public key.
+
+The validity period is enforced at the certificate level and is critical for lifecycle management and trust decisions.
 
 -
 -
@@ -73,37 +55,33 @@ Examples:
 ---
 
 ## Explanation
-Explain **why the results matter**.
+This lab demonstrates the foundational PKI workflow: key generation → CSR → certificate issuance.
 
-Examples:
+The CSR is a critical component because it proves possession of the private key while requesting identity validation. In a real-world PKI environment, the CSR would be submitted to a trusted Certificate Authority, which would validate the subject’s identity before issuing a signed certificate.
 
-- Why a specific field or extension is required
-- Why a validation succeeded or failed
-- What the result means in a real-world PKI context
-- How this connects to the week's learning outcomes
+By self-signing the certificate in this lab, I simulated the CA role, but without external trust. As a result, while the certificate is technically valid, it is not trusted by default systems because it does not chain back to a trusted root CA.
+
+This highlights a core principle of PKI:
+
+Validity does not always mean Trust
+
+A certificate can be valid but still untrusted if it is not  in a trusted certificate hierarchy.
+
+This workflow directly connects to TLS, where servers present certificates to clients, and clients validate those certificates using a chain of trust to determine whether a secure connection can be established.
 
 ---
 
 ## Challenges / Troubleshooting
-Document any issues encountered during the lab and how you resolved them.
+Encountered errors when using the -subj flag in Git Bash due to formatting and path parsing issues on Windows.
+Verified each step using ls and OpenSSL inspection commands to confirm file creation before proceeding.
 
-Examples:
-
-- Command errors
-- Missing files or dependencies
-- Verification failures and how you diagnosed them
-
----
 
 ## Artifacts
-List the files generated or submitted during this lab.
-
-Examples:
-
-- Any `.pem`, `.crt`, or `.key` files produced
-- Your completed lab write-up `.md` file
-- Screenshots stored in `assets/screenshots/`
-
+test_key.pem — RSA private key used to establish identity
+test_csr.pem — Certificate Signing Request containing subject information and public key
+test_cert.pem — Self-signed X.509 certificate generated from the CSR
+lab-01-generate-csr.md — Lab write-up
+Screenshots 
 ---
 
 *CVI PKI Career Pathway — Foundations Phase*
