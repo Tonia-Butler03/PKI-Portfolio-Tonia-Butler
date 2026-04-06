@@ -33,7 +33,6 @@ Subject and Issuer fields are identical, indicating no external CA signed the ce
 ```
 ![csr](../../../assets/screenshots/test_csr.pem.png)
 ```
-
 ![cert](../../../assets/screenshots/test_cert.pem.png)
 ```
 
