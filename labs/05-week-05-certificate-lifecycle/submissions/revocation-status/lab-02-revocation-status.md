@@ -34,12 +34,7 @@ Next Update: timestamp indicating how long the response can be cached
 Verified that the certificate was not revoked and is currently trusted.
 
 
-![OCSP](../../../assets/screenshots/OCSP.png)
-```
-
-
 ## Key Findings
-
 OCSP provides real-time validation of a certificate’s revocation status, unlike CRLs which rely on periodically downloaded lists.
 
 The OCSP query requires both the leaf certificate and the issuer certificate because revocation status is tracked by the issuing CA.
@@ -59,7 +54,6 @@ This lab highlights a key principle of PKI:
 
 Trust must be continuously validated throughout the certificate lifecycle
 
-
 ## Challenges / Troubleshooting
 Initially encountered issues where the OCSP query failed due to a missing issuer certificate.
 
@@ -78,3 +72,6 @@ ocsp_response.txt — Captured OCSP response output
 
 
 *CVI PKI Career Pathway — Foundations Phase*
+
+
+
