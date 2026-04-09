@@ -54,6 +54,10 @@ This lab highlights a key principle of PKI:
 
 Trust must be continuously validated throughout the certificate lifecycle
 
+The OCSP response included "This Update" and "Next Update" timestamps, which defines how long the response can be cached by clients. This prevents clients from querying the OCSP on every TLS handshake and improves performance.
+
+In scenarios where the OCSP responder returns an "unknown" status, the client cannot confirm the certificate’s validity. This may result in a soft fail (connection allowed) or hard fail (connection blocked), which has important implications for availability vs. security.
+
 ## Challenges / Troubleshooting
 Initially encountered issues where the OCSP query failed due to a missing issuer certificate.
 
