@@ -62,6 +62,10 @@ Confirmed that the certificate was valid and did not expire within the defined v
 
 -The correct response to expiration is certificate replacement, not reuse or extension of the expired certificate.
 
+- The -checkend flag returns an exit code that can be used in automation:
+  - Exit code 0 indicates the certificate will NOT expire within the specified time window
+  - Exit code 1 indicates the certificate WILL expire within the specified time window
+
 ---
 
 ## Explanation
@@ -78,7 +82,10 @@ New certificates should be issued with new key material rather than extending th
 
 This reduces risk and ensures continued security over time.
 
-
+- Certificate replacement is preferred over renewal when:
+  - A private key is suspected to be compromised
+  - Organizational or domain details change
+  - The original key algorithm no longer meets current security standards
 
 ## Challenges / Troubleshooting
 
