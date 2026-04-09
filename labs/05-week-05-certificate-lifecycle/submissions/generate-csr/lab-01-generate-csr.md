@@ -48,9 +48,15 @@ The certificate signature provides integrity and authenticity by linking the iss
 
 The validity period is enforced at the certificate level and is critical for lifecycle management and trust decisions.
 
--
--
--
+I verified that the private key and issued certificate matched by extracting and comparing their public keys:
+
+  openssl rsa -in test_key.pem -pubout -out key_pub.pem  
+  openssl x509 -in test_cert.pem -pubkey -noout > cert_pub.pem  
+  diff key_pub.pem cert_pub.pem  
+
+The diff command returned no output, confirming that the certificate corresponds to the correct private key. This validation step is critical before deploying certificates.
+
+
 
 ---
 
