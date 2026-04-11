@@ -23,8 +23,9 @@ The TLS failure was caused by the server presenting only the leaf certificate an
 
 - Leaf certificate subject: CN=*.badssl.com 
 - Issuer CN (missing intermediate): CN=R13 (Let's Encrypt) 
-- openssl verify leaf_cert.pem error before fix: error 20 at 0 depth lookup: unable to get local issuer certificate 
-- Result after adding the intermediate-Pending — intermediate certificate not successfully downloaded or applied
+- openssl verify leaf_cert.pem error before fix: error 20 at 0 depth lookup: unable to get local issuer certificate
+- - Result after adding the intermediate:
+  leaf_cert.pem: OK
 - The server sent only one certificate in the Certificate chain section, proving that the intermediate CA was not presented.
 - openssl verify leaf_cert.pem returned an error such as "unable to get local issuer certificate" and  "unable to verify the first certificate".
 - The Issuer field in the leaf certificate identified the intermediate CA that should have been present in the chain.
