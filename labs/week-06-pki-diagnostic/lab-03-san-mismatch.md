@@ -7,134 +7,144 @@
 
 ## Incident Summary
 
-**Target system:** [system name and/or simulation target]
-**Diagnosed by:** [your name]
-**Date of diagnosis:** [date]
+**Target system:** Staff scheduling portal (simulated via wrong.host.badssl.com) 
+**Diagnosed by:** Tonia Butler
+**Date of diagnosis:** 04/12/2026
 
----
+
 
 ### What failed
 
-[One sentence: what exactly caused the TLS failure]
+The TLS failure was caused by a hostname mismatch between the requested domain and the Subject Alternative Name (SAN) entries in the certificate.
 
 ---
 
 ### Evidence
 
-- [Key field or value from the certificate — e.g., Not After date, Issuer CN, SAN entries]
-- [Supporting command output or observation]
-- [Any additional evidence]
+- Subject CN:
+  CN=*.badssl.com 
 
----
+- SAN entries:
+  DNS:*.badssl.com
+
+- Hostname connected to:
+  wrong.host.badssl.com 
+
+- Hostname accessed: wrong.host.badssl.com 
+
+- OpenSSL verification:
+  error 20 at 0 depth lookup: unable to get local issuer certificate 
+- The SAN entries do not include wrong.host.badssl.com
+
 
 ### Why it failed
+TLS clients validate that the hostname being accessed matches one of the identities listed in the certificate’s Subject Alternative Name (SAN) extension. In this case, the certificate was issued for *.badssl.com and badssl.com, but the client connected to wrong.host.badssl.com. Because the hostname was not included in the SAN, TLS validation fails even though the certificate itself is valid and the chain is trusted.
 
-[2–3 sentences: the technical explanation of the failure. Connect it to what you learned in the
-relevant Week 5 or Week 6 lesson. Don't just describe what happened — explain why it caused a
-TLS error.]
 
----
 
 ### Chain status
 
-[Was the certificate chain structurally intact? Were there any chain-related issues separate from
-the primary failure?]
+The certificate chain was complete and valid. The server presented both the leaf certificate and the intermediate CA (Let's Encrypt R13), and the chain successfully validated to a trusted root CA (ISRG Root X1).
 
----
+There were no chain-related issues. The failure was not related to trust, expiration, or revocation. It was strictly a hostname mismatch.
+
+
 
 ### Remediation path
+1. First, I Identified the correct hostname being used by clients (wrong.host.badssl.com).
+2. Next step was to review the existing certificate to confirm its SAN entries.
+3. Then, Request a new certificate that includes the correct hostname in the SAN 
+4. Complete domain validation with the CA.
+5. Install the new certificate on the server.
+6. Restart or reload the service to apply the updated certificate.
+7. Validate the new certificate using openssl s_client and confirm the hostname matches the SAN.
+8. Test in a browser to confirm the TLS warning is resolved.
 
-[Step-by-step: what needs to happen to restore the failing system? Be specific. Walk through
-the process rather than summarizing it in one line.]
 
 ---
 
 ### Prevention
 
-[One concrete thing the organization could do differently to prevent this failure type from
-recurring]
+Implement a certificate request and validation process that requires verification of all required hostnames (SAN entries) before certificate issuance and deployment. This ensures that certificates are issued with the correct identities and prevents hostname mismatch errors.
 
 ---
 
 ## Diagnostic Steps
 
-Document each step of the PKI Diagnostic Framework as you worked through it.
-
 ### Step 1 — Retrieve
 
 **Command used:**
 
-```
-[paste command here]
-```
+openssl s_client -connect wrong.host.badssl.com:443 -servername wrong.host.badssl.com </dev/null 2>&1
 
-**What you observed:**
 
-[What the output told you — connection errors, certificate retrieved, etc.]
+**What I observed:**
 
----
+The connection successfully retrieved the server certificate and showed a complete certificate chain. The Verify return code was 0 (ok), indicating that the certificate chain was valid and trusted. No connection or trust errors were observed at this stage.
+
+
 
 ### Step 2 — Parse
 
 **Command used:**
 
-```
-[paste command here]
-```
+openssl x509 -in mismatch_cert.pem -text -noout
+
+openssl x509 -in mismatch_cert.pem -noout -text | grep -A5 "Subject Alternative Name"
+
+
+
 
 **Key fields from the certificate:**
 
-| Field | Value |
-|---|---|
-| Subject CN | |
-| Issuer | |
-| Not Before | |
-| Not After | |
-| SAN entries | |
+| Field       | Value                            |
+--------------------------------------------------
+| Subject CN  | CN=*.badssl.com                  |
+| Issuer      | CN=R13 (Let's Encrypt)           |
+| Not Before  | Mar 24 20:02:52 2026 GMT         |
+| Not After   | Jun 22 20:02:51 2026 GMT         |
+| SAN entries | DNS:*.badssl.com, DNS:badssl.com |
 
-**What you found:**
 
-[What the parsed certificate told you about the failure]
+**What I found:**
 
----
+The certificate was valid and within its validity period. However, the hostname used for the connection (wrong.host.badssl.com) was not included in the SAN entries. This caused the hostname mismatch.
+
 
 ### Step 3 — Validate the Chain
 
 **Command used:**
 
-```
-[paste command here]
-```
+
+openssl verify mismatch_cert.pem
 
 **Result:**
+Verification returned an error when using the default trust store, but the full connection output showed:
+Verify return code: 0 (ok)
 
-[Chain valid / chain broken — and what the error said]
+**What I found:**
+The certificate chain was valid and complete, including the intermediate CA (R13) and trusted root (ISRG Root X1). This confirmed that the failure was not related to a broken chain or missing intermediate certificate.
 
-**What you found:**
 
-[What this step confirmed or ruled out]
-
----
 
 ### Step 4 — Check Revocation and Trust
 
 **Command used:**
 
-```
-[paste command here]
-```
+openssl x509 -in mismatch_cert.pem -noout -text | grep -A2 "OCSP"
+
 
 **What you found:**
+No OCSP URL was observed in the parsed output. There was no indication of a revocation issue. The certificate was valid and trusted, and the failure occurred due to hostname mismatch rather than revocation or trust store issues.
 
-[OCSP URL present or absent, revocation status if checked, any trust store issues]
 
----
 
 ## Reflection
 
-[2–3 sentences: What did this lab reinforce or clarify for you? Was there a step where
-you had to slow down and think carefully?]
+This lab reinforced that a certificate can be fully valid and trusted and still fail TLS validation if the hostname does not match the SAN entries. It clarified the importance of the SAN extension over the Subject CN in TLS validation.
 
----
+I had to slow down and carefully compare the requested hostname to the SAN entries to clearly identify the mismatch.The certificate was trusted, but it wasn’t the right identity.
+
+
 
 *CVI PKI Career Pathway — Foundations Phase*
