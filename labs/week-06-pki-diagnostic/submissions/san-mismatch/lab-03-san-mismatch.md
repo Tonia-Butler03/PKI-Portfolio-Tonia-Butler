@@ -35,10 +35,16 @@ The TLS failure was caused by a hostname mismatch between the requested domain a
 - OpenSSL verification:
   error 20 at 0 depth lookup: unable to get local issuer certificate 
 - The SAN entries do not include wrong.host.badssl.com
+- Verify return code: 0 (ok)This confirms the certificate chain is valid and the failure is strictly due to a hostname mismatch.
 
 
 ### Why it failed
 TLS clients validate that the hostname being accessed matches one of the identities listed in the certificate’s Subject Alternative Name (SAN) extension. In this case, the certificate was issued for *.badssl.com and badssl.com, but the client connected to wrong.host.badssl.com. Because the hostname was not included in the SAN, TLS validation fails even though the certificate itself is valid and the chain is trusted.
+
+A DNS CNAME record only changes where a domain name points. However, during a TLS connection, the browser validates the certificate against the hostname the user originally entered.
+
+Therefore, a CNAME alias does not resolve a certificate mismatch. The only valid fix is to issue a certificate that includes the correct hostname.
+
 
 
 
