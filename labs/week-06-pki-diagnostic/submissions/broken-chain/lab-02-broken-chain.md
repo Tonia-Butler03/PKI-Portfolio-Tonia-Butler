@@ -122,6 +122,7 @@ After adding the missing intermediate with -untrusted, verification was succesfu
 What I found:
 
 This step confirmed that the leaf certificate itself was not the main problem. The failure happened because OpenSSL could not build a path from the leaf certificate to a trusted root without the missing intermediate. Once the intermediate was supplied, validation completed successfully.
+The -untrusted flag allows OpenSSL to use the provided intermediate certificate for chain building without adding it to the trusted root store. This enables testing whether the certificate chain would validate correctly if the server included the intermediate certificate.
 
 Step 4 — Check Revocation and Trust
 
@@ -129,15 +130,20 @@ Command used:
 
 openssl s_client -connect incomplete-chain.badssl.com:443 -showcerts </dev/null 2>/dev/null \
   | grep "Verify return code"
+  
+  openssl x509 -in leaf_cert.pem -noout -ocsp_uri
 
 What you found:
 
 The roblem was caused by an incomplete chain of trust. Once the intermediate was available during verification, the chain could be built to a trusted root and validation succeeded. There was no indication that revocation was the cause of the failure, so this incident was a chain configuration issue rather than a revocation or trust anchor problem.
 
+The OCSP check confirmed that revocation was not a factor in this failure. The issue was due to a missing intermediate certificate, not revocation.
 ***Reflection
 
 
 This lab reinforced that a certificate can look completely fine when viewed by itself and still fail  if the server does not present the full chain. It clarified the difference between a valid leaf certificate and a valid certificate path.
+
+The -untrusted flag allows OpenSSL to use the provided intermediate certificate for chain building without adding it to the trusted root store. This enables testing whether the certificate chain would validate correctly if the server included the intermediate certificate.
 
 The step that made me slow down was parsing the Issuer field and connecting it to the missing intermediate CA. That was the moment where the issue stopped looking like a generic TLS error and started making sense as a specific chain-building failure.
 
