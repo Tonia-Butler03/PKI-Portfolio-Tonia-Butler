@@ -1,4 +1,4 @@
-# Lab — [Lab Title]
+lab-01-enterprise-certificate-analysis
 
 ## Overview
 Briefly describe the purpose of this lab in your own words.
