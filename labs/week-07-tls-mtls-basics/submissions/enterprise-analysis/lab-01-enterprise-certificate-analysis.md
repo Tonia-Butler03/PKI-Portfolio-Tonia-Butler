@@ -1,5 +1,58 @@
 lab-01-enterprise-certificate-analysis
 
+**Target**
+
+The hostname analyzed was epic.com. I chose this domain because Epic is a major enterprise healthcare software provider, making it a strong real-world example of how PKI is implemented in a high-security, regulated environment where trust, availability, and compliance are critical.
+
+**Certificate Summary****
+Issuer: GeoTrust TLS RSA CA G1 (DigiCert)
+Validity Window: 6 months (Feb 2026 – Aug 2026)
+Certificate Type: Domain Validation (DV)
+SAN Count: 1
+Wildcard Usage: None
+
+
+**Chain Analysis**
+Number of Certificates in Chain: 2
+Intermediate CA: GeoTrust TLS RSA CA G1
+Root CA: DigiCert Global Root G2 (implicitly trusted)
+Chain Completeness: Complete
+
+The server presents both the leaf and intermediate certificates. The root CA is not included, as it is already trusted by the client’s trust store.
+
+**Termination Analysis**
+
+TLS does not appear to terminate at the application server. Although the HTTP response indicates Server: Kestrel, this alone does not confirm termination at the application layer.
+Based on standard enterprise architecture patterns, it is most likely that TLS terminates at a load balancer or reverse proxy.
+
+**TLS Configuration**
+SSL Labs Grade: A
+TLS Versions Supported: TLS 1.2, TLS 1.3
+Deprecated TLS Versions: Not supported
+HSTS: Enabled
+OCSP Stapling: Enabled
+
+The configuration reflects modern best practices
+
+**CT Log Analysis**
+
+Certificate Transparency logs show a large volume of certificates issued for epic.com and its subdomains, indicating a broad certificate footprint.
+
+CA Consistency: Not uniform
+DigiCert / GeoTrust used for primary domains
+Let’s Encrypt used extensively for subdomains
+Google Trust Services observed in some cases
+Unexpected Issuers: None identified
+Validity Pattern:
+6 months (DigiCert-issued certificates)
+90 days (Let’s Encrypt-issued certificates)
+
+This suggests a mix of traditional enterprise PKI and automated certificate management.
+
+**Architecture Assessment**
+
+Epic’s certificate deployment reflects a distributed PKI architecture where different certificate authorities are used across services and environments. This structure indicates a balance between trust and scapability.
+
 ## Overview
 The purpose of this lab was to analyze how Public Key Infrastructure (PKI) is implemented in a real-world environment by examining the TLS configuration and certificate of a live enterprise domain (epic.com).I selected epic.com because Epic is a major enterprise healthcare software provider. Their platform supports hospitals and large-scale clinical systems, making their TLS deployment a strong example of how PKI is implemented in a high-security, regulated environment.
 
