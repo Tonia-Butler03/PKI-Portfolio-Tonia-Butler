@@ -1,0 +1,500 @@
+    6  nano labs/03-week-03-certificate-anatomy/submissions/certificate-chain/server.pem
+    7  nano labs/03-week-03-certificate-anatomy/submissions/certificate-chain/intermediate.pem
+    8  nano labs/03-week-03-certificate-anatomy/submissions/certificate-chain/root.pem
+    9  cat labs/03-week-03-certificate-anatomy/submissions/certificate-chain/root.pem
+   10  openssl verify -CAfile labs/03-week-03-certificate-anatomy/submissions/certificate-chain/root.pem -untrusted labs/03-week-03-certificate-anatomy/submissions/certificate-chain/intermediate.pem labs/03-week-03-certificate-anatomy/submissions/certificate-chain/server.pem
+   11  curl -o labs/03-week-03-certificate-anatomy/submissions/certificate-chain/root.pem https://crt.sh/?d=1199354
+   12  curl -o labs/03-week-03-certificate-anatomy/submissions/certificate-chain/root.pem https://crt.sh/?d=1199354&opt=pem
+   13  cat labs/03-week-03-certificate-anatomy/submissions/certificate-chain/root.pem
+   14  openssl verify -CAfile labs/03-week-03-certificate-anatomy/submissions/certificate-chain/root.pem -untrusted labs/03-week-03-certificate-anatomy/submissions/certificate-chain/intermediate.pem labs/03-week-03-certificate-anatomy/submissions/certificate-chain/server.pem
+   15  openssl x509 -in labs/03-week-03-certificate-anatomy/submissions/certificate-chain/server.pem -noout -subject -issuer
+   16  openssl x509 -in labs/03-week-03-certificate-anatomy/submissions/certificate-chain/intermediate.pem -noout -subject -issuer
+   17  openssl x509 -in labs/03-week-03-certificate-anatomy/submissions/certificate-chain/root.pem -noout -subject -issuer
+   18  openssl verify -untrusted labs/03-week-03-certificate-anatomy/submissions/certificate-chain/intermediate.pem labs/03-week-03-certificate-anatomy/submissions/certificate-chain/server.pem
+   19  ls labs/03-week-03-certificate-anatomy/submissions/certificate-chain
+   20  openssl x509 -in labs/03-week-03-certificate-anatomy/submissions/certificate-chain/server.pem -noout -subject
+   21  openssl x509 -in labs/03-week-03-certificate-anatomy/submissions/certificate-chain/intermediate.pem -noout -subject
+   22  openssl x509 -in labs/03-week-03-certificate-anatomy/submissions/certificate-chain/root.pem -noout -subject
+   23  git add .
+   24  git commit -m "Week 3 Lab 03 — Certificate Chain Verification"
+   25  git push
+   26  git pull origin main --rebase
+   27  git push
+   28  mkdir -p lab/03-week-03-certificate-anatomy/submissions
+   29  cd ~
+   30  ls
+   31  ls
+   32  cd ~/Documents/GitHub/PKI-Portfolio-Tonia-Butler
+   33  pwd
+   34  ls
+   35  mkdir -p lab/03-week-03-certificate-anatomy/submissions
+   36  touch lab/03-week-03-certificate-anatomy/submissions/misconfiguration-analysis.md
+   37  nano lab/03-week-03-certificate-anatomy/submissions/misconfiguration-analysis.md
+   38  git add .
+   39  git commit -m "Add Week 3 Lab 04 misconfiguration analysis"
+   40  git push
+   41  ~/Documents/GitHub/PKI-Portfolio-Tonia-Butler
+   42  git rm --cached PKI-Portfolio-Tonia-Butler
+   43  git pull --rebase origin main
+   44  git push origin main
+   45  git status
+   46  openssl s_client -connect google.com:443 -servername google.com < /dev/null | openssl x509 -outform PEM > live-cert.pem
+   47  cat live-cert.pem
+   48  openssl s_client -connect google.com:443 -showcerts
+   49  pwd
+   50  openssl s_client -connect google.com:443 -showcerts
+   51  nano labs/week-04/submissions/convert-formats/leaf_cert.pem
+   52  mkdir -p labs/week-04/submissions/convert-formats
+   53  cd ~
+   54  cd PKI-Portfolio-Tonia-Butler
+   55  ls
+   56  cd Desktop
+   57  ls
+   58  cd /c/Users/Tonia-Butler03/PKI-Portfolio-Tonia-Butler
+   59  cd /c/Users/Tonia-Butler03/PKI-Portfolio-Tonia-Butler
+   60  ls
+   61  cd /c/Users/Tonia/Documents/GitHub/PKI-Portfolio-Tonia-Butler
+   62  ls
+   63  mkdir -p labs/week-04/submissions/convert-formats
+   64  nano labs/week-04/submissions/convert-formats/leaf_cert.pem
+   65  mkdir -p labs/week-04/submissions/convert-formats
+   66  nano labs/week-04/submissions/convert-formats/leaf_cert.pem
+   67  [200~openssl x509 -in labs/week-04/submissions/convert-formats/leaf_cert.pem -text -noout~
+   68  openssl x509 -in labs/week-04/submissions/convert-formats/leaf_cert.pem -text -noout
+   69  ls labs/week-04/submissions/convert-formats
+   70  mkdir -p labs/week-04/submissions/convert-formats
+   71  ls labs/week-04/submissions
+   72  nano labs/week-04/submissions/convert-formats/leaf_cert.pem
+   73  openssl x509 -in labs/week-04/submissions/convert-formats/leaf_cert.pem -text -noout
+   74  openssl x509 -in labs/week-04/submissions/convert-formats/leaf_cert.pem -outform DER -out labs/week-04/submissions/convert-formats/leaf_cert.der
+   75  ls labs/week-04/submissions/convert-formats
+   76  nano labs/week-04/submissions/convert-formats/leaf_cert.der
+   77  openssl x509 -in labs/week-04/submissions/convert-formats/leaf_cert.der -inform DER -text -noout
+   78  git status
+   79  ls labs/week-04/submissions/convert-formats
+   80  git log --oneline --decorate -5
+   81  git add labs/week-04/submissions/convert-formats/leaf_cert.pem
+   82  git add labs/week-04/submissions/convert-formats/leaf_cert.der
+   83  git commit -m "Week 4 Lab 01 - added PEM and DER certificate files"
+   84  git pull --rebase origin main
+   85  git stash push -u -m "temp unstaged changes"
+   86  git pull --rebase origin main
+   87  git push origin main
+   88  git log --oneline --decorate -5
+   89  openssl x509 -in labs/week-04/submissions/convert-formats/leaf_cert.der -inform DER -outform PEM -out labs/week-04/submissions/convert-formats/leaf_cert_restored.pem
+   90  ls
+   91  pwd
+   92  cd /c/Users/Tonia/Documents/GitHub/PKI-Portfolio-Tonia-Butler/PKI-Portfolio-Tonia-Butler
+   93  pwd
+   94  openssl x509 -in labs/week-04/submissions/convert-formats/leaf_cert.der -inform DER -outform PEM -out labs/week-04/submissions/convert-formats/leaf_cert_restored.pem
+   95  ls labs/week-04/submissions/convert-formats
+   96  diff labs/week-04/submissions/convert-formats/leaf_cert.pem labs/week-04/submissions/convert-formats/leaf_cert_restored.pem
+   97  openssl x509 -in labs/week-04/submissions/convert-formats/leaf_cert.der -inform DER -outform PEM -out labs/week-04/submissions/convert-formats/leaf_cert_restored.pem
+   98  ls labs/week-04/submissions/convert-formats
+   99  diff labs/week-04/submissions/convert-formats/leaf_cert.pem labs/week-04/submissions/convert-formats/leaf_cert_restored.pem
+  100  openssl genrsa -out labs/week-04/submissions/convert-formats/test_key.pem 2048
+  101  openssl req -new -x509 -key labs/week-04/submissions/convert-formats/test_key.pem -out labs/week-04/submissions/convert-formats/test_cert.pem -days 365 -subj "/CN=Week4-Lab-Test/O=CVI/C=US"
+  102  openssl pkcs12 -export -out labs/week-04/submissions/convert-formats/test_bundle.pfx -inkey labs/week-04/submissions/convert-formats/test_key.pem -in labs/week-04/submissions/convert-formats/test_cert.pem
+  103  openssl req -new -x509 -key labs/week-04/submissions/convert-formats/test_key.pem -out labs/week-04/submissions/convert-formats/test_cert.pem -days 365 -subj "/CN=Week4-Lab-Test/O=CVI/C=US"
+  104  ls labs/week-04/submissions/convert-formats
+  105  openssl req -new -x509 -key labs/week-04/submissions/convert-formats/test_key.pem -out labs/week-04/submissions/convert-formats/test_cert.pem -days 365 -subj '/CN=Week4-Lab-Test/O=CVI/C=US'
+  106  ls labs/week-04/submissions/convert-formats
+  107  openssl req -new -x509 -key "labs/week-04/submissions/convert-formats/test_key.pem" -out "labs/week-04/submissions/convert-formats/test_cert.pem" -days 365 -subj "/CN=Week4-Lab-Test/O=CVI/C=US"
+  108  ls labs/week-04/submissions/convert-formats
+  109  MSYS_NO_PATHCONV=1 openssl req -new -x509 -key "labs/week-04/submissions/convert-formats/test_key.pem" -out "labs/week-04/submissions/convert-formats/test_cert.pem" -days 365 -subj "/CN=Week4-Lab-Test/O=CVI/C=US"
+  110  ls labs/week-04/submissions/convert-formats
+  111  openssl pkcs12 -export -out "labs/week-04/submissions/convert-formats/test_bundle.pfx" -inkey "labs/week-04/submissions/convert-formats/test_key.pem" -in "labs/week-04/submissions/convert-formats/test_cert.pem"
+  112  openssl pkcs12 -export -out "labs/week-04/submissions/convert-formats/test_bundle.pfx" -inkey "labs/week-04/submissions/convert-formats/test_key.pem" -in "labs/week-04/submissions/convert-formats/test_cert.pem"
+  113  echo "labs/week-04/submissions/convert-formats/test_key.pem" >> .gitignore
+  114  ls labs/week-04/submissions/convert-formats
+  115  echo "labs/week-04/submissions/convert-formats/test_key.pem" >> .gitignore
+  116  git add .gitignore
+  117  git commit -m "Ignore private key file"
+  118  git push
+  119  git status
+  120  git add labs/week-04/submissions/convert-formats/leaf_cert_restored.pem
+  121  git add labs/week-04/submissions/convert-formats/test_cert.pem
+  122  git add labs/week-04/submissions/convert-formats/test_bundle.pfx
+  123  git commit -m "Week 4 Lab 01 - added restored PEM, test cert, and PFX bundle"
+  124  git push origin main
+  125  git log --oneline --decorate -5
+  126  ls labs/week-04/submissions/convert-formats
+  127  cd ~/PKI-Portfolio-Tonia-Butler
+  128  cd /c/Users/Tonia/Documents/GitHub
+  129  cd ~/PKI-Portfolio-Tonia-Butler
+  130  ls
+  131  cd Documents
+  132  ls
+  133  cd /c/Users
+  134  ls
+  135  cd /c/Users/Tonia
+  136  ls
+  137  cd Documents
+  138  ls
+  139  cd ~
+  140  ls
+  141  cd ~/labs
+  142  ls
+  143  git status
+  144  find ~ -maxdepth 4 -type d -name ".git"
+  145  mkdir -p labs/04-week-04-certificate-formats/submissions/install-validate
+  146  cd /c/Users/Tonia
+  147  ls
+  148  cd /c/Users/Tonia/Documents/GitHub/PKI-Portfolio-Tonia-Butler/PKI-Portfolio-Tonia-Butler
+  149  pwd
+  150  lab/
+  151  labs/
+  152  cd /c/Users/Tonia/Documents/GitHub
+  153  ls
+  154  cd PKI-Portfolio-Tonia-Butler
+  155  git log --oneline --decorate -5
+  156  find /c/Users/Tonia -type d -name "PKI-Portfolio-Tonia-Butler" 2>/dev/null
+  157  cd /c/Users/Tonia/OneDrive/Documents/GitHub/PKI-Portfolio-Tonia-Butler
+  158  pwd
+  159  ls
+  160  git status
+  161  mkdir -p labs/04-week-04-certificate-formats/submissions/install-validate
+  162  LAB=labs/04-week-04-certificate-formats/submissions/install-validate
+  163  openssl genrsa -out $LAB/rootCA.key 2048
+  164  openssl req -x509 -new -nodes -key $LAB/rootCA.key -sha256 -days 365 -out $LAB/rootCA.pem
+  165  LAB=labs/04-week-04-certificate-formats/submissions/install-validate
+  166  mkdir -p $LAB
+  167  labs/04-week-04-certificate-formats/submissions/install-validate
+  168  find /c/Users/Tonia -type d -name "PKI-Portfolio-Tonia-Butler" 2>/dev/null
+  169  ls
+  170  pwd
+  171  cd /c/Users/Tonia/OneDrive/Documents/GitHub/PKI-Portfolio-Tonia-Butler
+  172  pwd
+  173  LAB=labs/04-week-04-certificate-formats/submissions/install-validate
+  174  mkdir -p $LAB
+  175  openssl genrsa   -out $LAB/test-root-ca.key   2048
+  176  openssl req -new -x509   -key $LAB/test-root-ca.key   -out $LAB/test-root-ca.crt   -days 30   -subj "/CN=CVI-Lab-Root-CA/O=CyberVisionaries Institute/C=US"
+  177  openssl x509   -in $LAB/test-root-ca.crt   -text -noout
+  178  LAB=labs/04-week-04-certificate-formats/submissions/install-validate
+  179  MSYS_NO_PATHCONV=1 openssl req -new -x509   -key $LAB/test-root-ca.key   -out $LAB/test-root-ca.crt   -days 30   -subj "/CN=CVI-Lab-Root-CA/O=CyberVisionaries Institute/C=US"
+  180  openssl x509   -in $LAB/test-root-ca.crt   -text -noout
+  181  ls $LAB
+  182  ls $LAB
+  183  openssl genrsa   -out $LAB/test-signed.key   2048
+  184  MSYS_NO_PATHCONV=1 openssl req -new   -key $LAB/test-signed.key   -out $LAB/test-signed.csr   -subj "/CN=test.cvi-lab.local/O=CyberVisionaries Institute/C=US"
+  185  openssl x509 -req   -in $LAB/test-signed.csr   -CA $LAB/test-root-ca.crt   -CAkey $LAB/test-root-ca.key   -CAcreateserial   -out $LAB/test-signed.crt   -days 30
+  186  openssl verify   -CAfile $LAB/test-root-ca.crt   $LAB/test-signed.crt
+  187  openssl verify   -CAfile $LAB/test-root-ca.crt   $LAB/test-signed.crt
+  188  openssl verify   -CAfile $LAB/test-root-ca.crt   $LAB/test-signed.crt
+  189  openssl verify   -CAfile $LAB/test-root-ca.crt   $LAB/test-signed.crt
+  190  openssl verify   -CAfile $LAB/test-root-ca.crt   $LAB/test-signed.crt
+  191  openssl verify $LAB/test-signed.crt
+  192  labs/04-week-04-certificate-formats/submissions/install-validate/
+  193  ls $LAB
+  194  rm $LAB/*.key
+  195  rm $LAB/*.csr
+  196  rm $LAB/*.srl
+  197  test-root-ca.crt
+  198  test-signed.crt
+  199  ls $LAB
+  200  openssl x509 -in $LAB/test-root-ca.crt -noout -text
+  201  ls $LAB
+  202  find . -name "test-root-ca.crt"
+  203  find . -name "test-signed.crt"
+  204  echo ". -name "test-signed.crt".crt" >> .gitignore
+  205  git add -f $LAB/test-root-ca.crt
+  206  git add -f $LAB/test-signed.crt
+  207  git status
+  208  git status
+  209  git commit -m "Lab 03 — install and validate certificate trust"
+  210  git push
+  211  git pull --rebase origin main
+  212  git push origin main
+  213  git status
+  214  git pull --rebase origin main
+  215  git push origin main
+  216  git stash push -u -m "temp screenshot changes"
+  217  git pull --rebase origin main
+  218  git push origin main
+  219  git stash pop
+  220  git status
+  221  git stash push -u -m "temp screenshot changes 2"
+  222  [200~git pull --rebase origin main
+  223  git push origin main
+  224  git stash pop
+  225  git status
+  226  git stash push -u -m "temp screenshot changes 3"
+  227  git pull --rebase origin main
+  228  git push origin main
+  229  labs/03-week-03-certificate-anatomy/submissions/misconfiguration-analysis/
+  230  labs/week-04/submissions/trust-store-inspection/
+  231  git status --short
+  232  git restore "PKI-Portfolio-Tonia-Butler"
+  233  git restore "assets/screenshots/assets sceentshot week 03 identity & trust attributes.png"
+  234  git restore "assets/screenshots/assets sceentshot week 03-lab-02-certificate-extenstion.png"
+  235  git status --short
+  236  git pull --rebase origin main
+  237  git push origin main
+  238  pwd
+  239  ls -la .git
+  240  rm -rf .git/rebase-merge
+  241  git rebase --abort
+  242  git status
+  243  pwd
+  244  git rev-parse --show-toplevel
+  245  ls
+  246  cd PKI-Portfolio-Tonia-Butler
+  247  git status
+  248  git rev-parse --show-toplevel
+  249  pwd
+  250  find labs/04-week-04-certificate-formats/submissions/install-validate -maxdepth 1 -type f
+  251  cd /c/Users/Tonia/OneDrive/Documents/GitHub/PKI-Portfolio-Tonia-Butler/PKI-Portfolio-Tonia-Butler
+  252  git status
+  253  find labs/04-week-04-certificate-formats/submissions/install-validate -maxdepth 1 -type f
+  254  cp /c/Users/Tonia/OneDrive/Documents/GitHub/PKI-Portfolio-Tonia-Butler/labs/04-week-04-certificate-formats/submissions/install-validate/*.crt labs/04-week-04-certificate-formats/submissions/install-validate/
+  255  git add labs/04-week-04-certificate-formats/submissions/install-validate/*.crt
+  256  git commit -m "Lab 03 — install and validate certificate trust"
+  257  git push origin main
+  258  pwd
+  259  find labs -maxdepth 3 -type d | sort
+  260  mkdir -p labs/04-week-04-certificate-formats/submissions/install-validate
+  261  cp /c/Users/Tonia/OneDrive/Documents/GitHub/PKI-Portfolio-Tonia-Butler/labs/04-week-04-certificate-formats/submissions/install-validate/*.crt labs/04-week-04-certificate-formats/submissions/install-validate/
+  262  ls labs/04-week-04-certificate-formats/submissions/install-validate
+  263  git add labs/04-week-04-certificate-formats/submissions/install-validate/*.crt
+  264  git commit -m "Lab 03 — install and validate certificate trust"
+  265  git push origin main
+  266  C:\Users\Tonia\OneDrive\Documents\GitHub\PKI-Portfolio-Tonia-Butler\PKI-Portfolio-Tonia-Butler
+  267  pwd
+  268  git rev-parse --show-toplevel
+  269  ls labs/04-week-04-certificate-formats/submissions/install-validate
+  270  git log --oneline -5
+  271  ls
+  272  pwd
+  273  cp -r /c/Users/Tonia/OneDrive/Documents/GitHub/PKI-Portfolio-Tonia-Butler/labs/04-week-04-certificate-formats/submissions/install-validate labs/04-week-04-certificate-formats/submissions/
+  274  openssl x509 -in cert.pem -outform der -out cert.der
+  275  ls
+  276  md
+  277  cd path/to/your/lab-files
+  278  ls
+  279  cd /c/Users/Tonia/OneDrive/PKI-Portfolio-Tonia-Butler
+  280  ls
+  281  cd /c/Users/Tonia
+  282  ls
+  283  cd Documents
+  284  ls
+  285  cd /c/Users/Tonia
+  286  ls
+  287  cd ~/labs
+  288  ls
+  289  cd week-04
+  290  ls
+  291  find . -name "*.pem"
+  292  cd submissions
+  293  ls
+  294  cd ~/labs/week-04/submissions
+  295  mkdir temp-cert
+  296  cd temp-cert
+  297  openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 1 -nodes -subj "/CN=Test Cert"
+  298  openssl x509 -in cert.pem -outform der -out cert.der
+  299  openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 1 -nodes -subj "/CN=TestCert"
+  300  ls
+  301  openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 1 -nodes
+  302  ls
+  303  openssl x509 -in cert.pem -outform der -out cert.der
+  304  mkdir -p labs/week-05/submissions/generate-csr
+  305  ls
+  306  cd /c/Users/Tonia
+  307  ls
+  308  cd /c/Users/Tonia/Documents/GitHub/PKI-Portfolio-Tonia-Butler/PKI-Portfolio-Tonia-Butler
+  309  cd /c/Users/Tonia/Documents/GitHub
+  310  pwd
+  311  find /c/Users/Tonia -type d -name "PKI-Portfolio-Tonia-Butler" 2>/dev/null
+  312  mkdir -p labs/week-05/submissions/generate-csr
+  313  cd /c/Users/Tonia/OneDrive/Documents/GitHub/PKI-Portfolio-Tonia-Butler
+  314  pwd
+  315  rm -rf labs
+  316  mkdir -p labs/week-05/submissions/generate-csr
+  317  ls labs/week-05/submissions/generate-csr
+  318  openssl genrsa   -out labs/week-05/submissions/generate-csr/test_key.pem 2048
+  319  openssl rsa   -in labs/week-05/submissions/generate-csr/test_key.pem   -text -noout | head -5
+  320  nano .gitignore
+  321  openssl req -new   -key labs/week-05/submissions/generate-csr/test_key.pem   -out labs/week-05/submissions/generate-csr/test_csr.pem   -subj "/CN=lab01.cvi.internal/O=CyberVisionaries Institute/OU=PKI Career Pathway/C=US/ST=California/L=San Francisco"
+  322  openssl req   -in labs/week-05/submissions/generate-csr/test_csr.pem   -text -noout
+  323  openssl req -new   -key labs/week-05/submissions/generate-csr/test_key.pem   -out labs/week-05/submissions/generate-csr/test_csr.pem   -subj "/CN=lab01.cvi.internal/O=CyberVisionaries Institute/OU=PKI_Career_Pathway/C=US/ST=California/L=San_Francisco"
+  324  openssl req -new -key labs/week-05/submissions/generate-csr/test_key.pem -out labs/week-05/submissions/generate-csr/test_csr.pem -subj "/CN=lab01.cvi.internal/O=CyberVisionaries Institute/OU=PKI_Career_Pathway/C=US/ST=California/L=San_Francisco"
+  325  openssl req -new   -key labs/week-05/submissions/generate-csr/test_key.pem   -out labs/week-05/submissions/generate-csr/test_csr.pem
+  326  openssl req -in labs/week-05/submissions/generate-csr/test_csr.pem -text -noout
+  327  openssl x509 -req   -in labs/week-05/submissions/generate-csr/test_csr.pem   -signkey labs/week-05/submissions/generate-csr/test_key.pem   -out labs/week-05/submissions/generate-csr/test_cert.pem   -days 365   -set_serial 01
+  328  openssl x509   -in labs/week-05/submissions/generate-csr/test_cert.pem   -text -noout
+  329  openssl x509   -in labs/week-05/submissions/generate-csr/test_cert.pem   -pubkey -noout > /tmp/cert_pubkey.pem
+  330  openssl rsa   -in labs/week-05/submissions/generate-csr/test_key.pem   -pubout > /tmp/key_pubkey.pem
+  331  diff /tmp/cert_pubkey.pem /tmp/key_pubkey.pem
+  332  mkdir -p labs/05-week-05-certificate-lifecycle/submissions/generate-csr
+  333  mv labs/week-05/submissions/generate-csr/test_csr.pem labs/05-week-05-certificate-lifecycle/submissions/generate-csr/
+  334  mv labs/week-05/submissions/generate-csr/test_cert.pem labs/05-week-05-certificate-lifecycle/submissions/generate-csr/
+  335  ls labs/05-week-05-certificate-lifecycle/submissions/generate-csr/
+  336  cat .gitignore
+  337  git add labs/05-week-05-certificate-lifecycle/submissions/generate-csr/
+  338  git commit -m "Week 5 Lab 01 artifacts - CSR and self-signed certificate"
+  339  git push
+  340  git pull origin main --rebase
+  341  git status
+  342  git add .
+  343  git commit -m "Cleanup before rebase"
+  344  git pull origin main --rebase
+  345  git status
+  346  ls labs/05-week-05-certificate-lifecycle/submissions/generate-csr/
+  347  git push
+  348  git status
+  349  git rm labs/04-week-04-certificate-formats/submissions/lab-01-convert-certificate-formats.md
+  350  git rm labs/04-week-04-certificate-formats/submissions/lab-02-inspect-trust-stores.md
+  351  git rm labs/05-week-05-certificate-lifecycle/.keep
+  352  git add .
+  353  git rebase --continue
+  354  git status
+  355  git push
+  356  git rebase --continue
+  357  rm -rf .git/rebase-merge
+  358  rm -rf .git/rebase-apply
+  359  git status
+  360  git checkout HEAD~1 -- labs
+  361  ls labs
+  362  git add labs
+  363  git commit -m "Restore missing lab folders after rebase cleanup"
+  364  git push
+  365  git checkout HEAD~1 -- labs
+  366  ls labs
+  367  rm -rf labs/week-05
+  368  git add labs
+  369  git commit -m "Restore lab folders and clean duplicate week-05 folder"
+  370  git push
+  371  rm -rf lab
+  372  rm -rf PKI-Portfolio-Tonia-Butler
+  373  ls
+  374  git status
+  375  git add -A
+  376  git commit -m "Remove nested repo folder and finalize structure cleanup"
+  377  git push
+  378  git status
+  379  git status
+  380  git status
+  381  rm -rf PKI-Portfolio-Tonia-Butler
+  382  git status
+  383  rm -rf PKI-Portfolio-Tonia-Butler
+  384  git status
+  385  ls -la PKI-Portfolio-Tonia-Butler
+  386  ls labs
+  387  pwd
+  388  ls labs
+  389  cmd /c rd /s /q "PKI-Portfolio-Tonia-Butler"
+  390  git status
+  391  ls
+  392  rm -rf -- "PKI-Portfolio-Tonia-Butler"
+  393  ls
+  394  git status
+  395  mkdir -p labs/05-week-05-certificate-lifecycle/submissions/revocation-status
+  396  echo | openssl s_client -connect github.com:443 2>/dev/null | openssl x509 -out labs/05-week-05-certificate-lifecycle/submissions/revocation-status/leaf_cert.pem
+  397  openssl x509 -in labs/05-week-05-certificate-lifecycle/submissions/revocation-status/leaf_cert.pem -subject -issuer -dates -noout
+  398  openssl x509 -in labs/05-week-05-certificate-lifecycle/submissions/revocation-status/leaf_cert.pem -text -noout | grep -A4 "Authority Information Access"
+  399  openssl x509 -in labs/05-week-05-certificate-lifecycle/submissions/revocation-status/leaf_cert.pem -text -noout
+  400  openssl x509 -in labs/05-week-05-certificate-lifecycle/submissions/revocation-status/leaf_cert.pem -text -noout | grep -A3 "CRL Distribution"
+  401  OCSP_URL=$(openssl x509 \
+  402  -in labs/05-week-05-certificate-lifecycle/submissions/revocation-status/leaf_cert.pem \
+  403  -text -noout | grep "OCSP" | grep "http" | sed 's/.*URI://' | tr -d ' ')
+  404  openssl ocsp -issuer labs/05-week-05-certificate-lifecycle/submissions/revocation-status/issuer_cert.pem -cert labs/05-week-05-certificate-lifecycle/submissions/revocation-status/leaf_cert.pem -url "$OCSP_URL" -resp_text -noverify 2>/dev/null | tee labs/05-week-05-certificate-lifecycle/submissions/revocation-status/ocsp_response.txt
+  405  OCSP_URL=$(openssl x509 -in labs/05-week-05-certificate-lifecycle/submissions/revocation-status/leaf_cert.pem -text -noout | grep "OCSP" | grep "http" | sed 's/.*URI://' | tr -d ' ')
+  406  openssl ocsp -issuer labs/05-week-05-certificate-lifecycle/submissions/revocation-status/issuer_cert.pem -cert labs/05-week-05-certificate-lifecycle/submissions/revocation-status/leaf_cert.pem -url "$OCSP_URL" -resp_text -noverify 2>/dev/null | tee labs/05-week-05-certificate-lifecycle/submissions/revocation-status/ocsp_response.txt
+  407  echo $OCSP_URL
+  408  openssl ocsp -issuer labs/05-week-05-certificate-lifecycle/submissions/revocation-status/issuer_cert.pem -cert labs/05-week-05-certificate-lifecycle/submissions/revocation-status/leaf_cert.pem -url "$OCSP_URL" -noverify -text
+  409  openssl ocsp -issuer labs/05-week-05-certificate-lifecycle/submissions/revocation-status/issuer_cert.pem -cert labs/05-week-05-certificate-lifecycle/submissions/revocation-status/leaf_cert.pem -url "$OCSP_URL" -noverify -text
+  410  ls labs/05-week-05-certificate-lifecycle/submissions/revocation-status
+  411  echo | openssl s_client -connect github.com:443 -showcerts 2>/dev/null > labs/05-week-05-certificate-lifecycle/submissions/revocation-status/fullchain.txt
+  412  nano labs/05-week-05-certificate-lifecycle/submissions/revocation-status/fullchain.txt
+  413  openssl x509 -in labs/05-week-05-certificate-lifecycle/submissions/revocation-status/issuer_cert.pem -subject -issuer -noout
+  414  nano labs/05-week-05-certificate-lifecycle/submissions/revocation-status/issuer_cert.pem
+  415  ls labs/05-week-05-certificate-lifecycle/submissions/revocation-status
+  416  openssl ocsp -issuer labs/05-week-05-certificate-lifecycle/submissions/revocation-status/issuer_cert.pem -cert labs/05-week-05-certificate-lifecycle/submissions/revocation-status/leaf_cert.pem -url "$OCSP_URL" -resp_text -noverify
+  417  openssl x509 -in labs/05-week-05-certificate-lifecycle/submissions/revocation-status/leaf_cert.pem -text -noout | grep -i "crl"
+  418  openssl x509 -in labs/05-week-05-certificate-lifecycle/submissions/revocation-status/leaf_cert.pem -text -noout | grep -A3 "CRL Distribution"
+  419  pki
+  420  git status
+  421  git log --oneline
+  422  git ls-tree -r 2680b0d --name-only
+  423  mkdir recovery
+  424  git --work-tree=recovery checkout 2680b0d -- .
+  425  git ls-tree -r 2680b0d --name-only
+  426  git ls-tree -r 2680b0d --name-only | grep week-05
+  427  git ls-tree -r 2680b0d --name-only | grep submissions
+  428  git checkout 2680b0d -- lifecycle/submissions/
+  429  git checkout 2680b0d -- labs/05-week-05-certificate-lifecycle/
+  430  git status
+  431  git add .
+  432  git commit -m "Restore Week 5 certificate lifecycle submissions"
+  433  git push
+  434  git status
+  435  git log --oneline -3
+  436  git push origin main
+  437  pki
+  438  openssl s_client -connect wrong.host.badssl.com:443 -servername wrong.host.badssl.com   </dev/null 2>/dev/null | openssl x509 -outform PEM > mismatch_cert.pem
+  439  openssl s_client -connect wrong.host.badssl.com:443 -servername wrong.host.badssl.com </dev/null 2>&1
+  440  openssl x509 -in mismatch_cert.pem -text -noout
+  441  openssl x509 -in mismatch_cert.pem -noout -text | grep -A5 "Subject Alternative Name"
+  442  openssl verify mismatch_cert.pem
+  443  openssl x509 -in mismatch_cert.pem -noout -text | grep -A2 "OCSP"
+  444  pki
+  445  openssl s_client -connect wrong.host.badssl.com:443 -servername wrong.host.badssl.com   </dev/null 2>/dev/null | openssl x509 -outform PEM > mismatch_cert.pem
+  446  openssl s_client -connect wrong.host.badssl.com:443 -servername wrong.host.badssl.com </dev/null 2>&1
+  447  ls labs/week-06/submissions/expired-certificate/
+  448  pki
+  449  [200~ls labs/week-06/submissions/expired-certificate/~
+  450  ls labs/week-06/submissions/expired-certificate/
+  451  mkdir -p labs/week-06/submissions/expired-certificate
+  452  ls labs/week-06/submissions/expired-certificate
+  453  cat labs/week-06/submissions/expired-certificate/expired_cert.pem
+  454  ls
+  455  mv expired_cert.pem labs/week-06/submissions/expired-certificate/
+  456  ls labs/week-06/submissions/expired-certificate
+  457  cat labs/week-06/submissions/expired-certificate/expired_cert.pem
+  458  git add labs/week-06/submissions/expired-certificate/
+  459  git commit -m "Week 6 Lab 01: Added expired certificate artifact"
+  460  git push origin main
+  461  pki
+  462  [200~openssl s_client -connect [hostname]:443 -showcerts 2>/dev/null \
+  463  [200~openssl s_client -connect [servicenow.com]:443 -showcerts 2>/dev/null   | openssl x509 -outform PEM > enterprise_cert.pem
+  464  openssl s_client -connect [servicenow.com]:443 -showcerts 2>/dev/null > full_chain_output.txt
+  465  openssl s_client -connect epic.com:443 -showcerts 2>/dev/null   | openssl x509 -outform PEM > enterprise_cert.pem
+  466  pki
+  467  openssl s_client -connect epic.com:443 -showcerts 2>/dev/null   | openssl x509 -outform PEM > enterprise_cert.pem
+  468  openssl s_client -connect epic.com:443 -showcerts 2>/dev/null | openssl x509 -outform PEM > enterprise_cert.pem
+  469  openssl s_client -connect epic.com:443 -showcerts 2>/dev/null | openssl x509 -outform PEM > enterprise_cert.pem
+  470  ls
+  471  openssl s_client -connect epic.com:443 -showcerts </dev/null 2>/dev/null > full_chain_output.txt
+  472  cat full_chain_output.txt
+  473  openssl x509 -in enterprise_cert.pem -text -noout
+  474  openssl x509 -in enterprise_cert.pem -noout -subject -issuer -dates
+  475  openssl x509 -in enterprise_cert.pem -noout -text | grep -A10 "Subject Alternative Name"
+  476  openssl s_client -connect epic.com:443 -showcerts </dev/null 2>/dev/null
+  477  curl -sI https://epic.com | grep -i "server\|via\|x-cache\|cf-ray\|x-amz"
+  478  pki
+  479  cd week-07-tls-mtls-basics
+  480  mkdir -p submissions/enterprise-analysis
+  481  touch submissions/enterprise-analysis/lab-01-enterprise-certificate-analysis.md
+  482  mv enterprise_cert.pem submissions/enterprise-analysis/
+  483  ls submissions/enterprise-analysis
+  484  mv submissions labs/week-07-tls-mtls-basics/
+  485  ls labs/week-07-tls-mtls-basics/submissions/enterprise-analysis
+  486  git add .
+  487  git commit -m "Fix: move Week 7 enterprise analysis into correct folder structure"
+  488  git push
+  489  pki
+  490  pwd
+  491  [200~mv assets/screenshots/SSL.png assets/screenshots/ssl-labs-overview.png
+  492  mv assets/screenshots/CT_Log.png assets/screenshots/crtsh-overview.png
+  493  ls assets/screenshots
+  494  mv assets/screenshots/SSL.png assets/screenshots/ssl-labs-overview.png
+  495  rm assets/screenshots/CT_Log.txt
+  496  ls assets/screenshots
+  497  ls assets/screenshots
+  498  labs/week-07-tls-mtls-basics/submissions/pki-toolkit/lab-02-pki-toolkit.md
+  499  mkdir -p labs/week-07-tls-mtls-basics/submissions/pki-toolkit
+  500  touch labs/week-07-tls-mtls-basics/submissions/pki-toolkit/lab-02-pki-toolkit.md
+  501  history
+  502  history > command_history.txt
+  503  cd ~/OneDrive/Documents/GitHub/PKI-Portfolio-Tonia-Butler
+  504  pwd
+  505  history > command_history.txt
