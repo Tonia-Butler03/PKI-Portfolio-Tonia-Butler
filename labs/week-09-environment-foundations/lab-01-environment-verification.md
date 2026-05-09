@@ -11,21 +11,21 @@
 
 **VMs started in correct order (DC01 → PKI-SRV01 → Root-CA):**
 
-* [ ] Yes
+* [x ] Yes
 * [ ] No — describe what happened:
 
 **Login credentials used:**
 
 | VM        | Account Used    | Login Successful? |
 | --------- | --------------- | ----------------- |
-| DC01      | CORP\pki.admin  | Yes / No          |
-| PKI-SRV01 | CORP\pki.admin  | Yes / No          |
-| Root-CA   | .\Administrator | Yes / No          |
+| DC01      | CORP\pki.admin  | Yes        
+| PKI-SRV01 | CORP\pki.admin  | Yes          
+| Root-CA   | .\Administrator | Yes          
 
 **Notes / issues encountered:**
-
+Initial setup required troubleshooting network configuration. The VMs initially had incorrect IP settings and network adapter issues, which prevented connectivity between systems. These issues were resolved by correctly configuring static IP addresses and ensuring both VMs were on the same network.
 ```
-(enter notes here)
+
 ```
 
 ---
@@ -40,13 +40,14 @@ Test-Connection -ComputerName DC01 -Count 2
 
 **Output received:**
 
-```
-(paste your output here)
-```
+Source        Destination     IPV4Address     Bytes    Time(ms)
+------        -----------     -----------     -----    --------
+PKI-SRV01     192.168.10.10   192.168.10.10   32       1
+PKI-SRV01     192.168.10.10   192.168.10.10   32       1
 
 **DC01 responded successfully:**
 
-* [ ] Yes
+* [ x] Yes
 * [ ] No — troubleshooting steps taken:
 
 ---
@@ -62,15 +63,16 @@ Get-Service -Name CertSvc
 
 **Output received:**
 
-```
-(paste your output here)
-```
+Status   Name     DisplayName
+------   ----     -----------
+Running  CertSvc  Active Directory Certificate Services
 
-**CertSvc status shown:** ________________
+
+**CertSvc status shown:** Running
 
 **Service was Running:**
 
-* [ ] Yes
+* [X ] Yes
 * [ ] No — action taken:
 
 ---
@@ -80,21 +82,21 @@ Get-Service -Name CertSvc
 Confirmed CA name visible: CVI Issuing CA 1  
 Confirmed CA status: Running  
 
-The Certification Authority console (certsrv.msc) opened successfully. 
+The Certification Authority (certsrv.msc) opened successfully. 
 The CA was visible with a healthy status indicator, confirming that the PKI server is properly configured and operational. 
 The console displayed standard CA folders including Issued Certificates, Revoked Certificates, and Pending Requests.
+
 **Steps completed on PKI-SRV01:**
 
-* [ ] Opened certsrv.msc via Run dialog
-* [ ] Confirmed CA name visible: ________________
-* [ ] Confirmed CA status: ________________
-* [ ] Expanded left pane — folders visible (Revoked Certificates, Issued Certificates, etc.)
+* [x ] Opened certsrv.msc via Run dialog
+* [x] Confirmed CA name visible: CVI Issuing CA 1
+* [x] Confirmed CA status: Running
+* [x] Expanded left pane — folders visible (Revoked Certificates, Issued Certificates, etc.)
 
 **Screenshot or description of what you observed in certsrv.msc:**
+The Certification Authority console displayed "CVI Issuing CA 1" with a green status indicator, confirming the CA is operational. The console included standard folders such as Issued Certificates, Revoked Certificates, Pending Requests, and Failed Requests.
 
-```
-(describe or reference your screenshot here)
-```
+
 
 ---
 
@@ -108,11 +110,6 @@ Get-ChildItem "C:\Windows\System32\CertLog"
 
 **Output received:**
 
-```
-(paste your output here)
-```
-
-**Files found in CertLog:**
 
 | File Name                | Approximate Size |
 |-------------------------|------------------|
@@ -125,10 +122,7 @@ Get-ChildItem "C:\Windows\System32\CertLog"
 | edbtmp.log              | ~1 MB            |
 | tmp.edb                 | ~20 KB           |
 
-| File Name | Approximate Size |
-| --------- | ---------------- |
-|           |                  |
-|           |                  |
+
 
 ---
 
@@ -137,21 +131,21 @@ Get-ChildItem "C:\Windows\System32\CertLog"
 **One thing that went well during this lab:**
 
 ```
-(your response here)
+Once the network configuration was corrected, the environment functioned as expected. I was able to successfully verify connectivity, confirm services were running, and access the Certification Authority console.
 ```
 
 **One thing that was confusing or unexpected:**
 
 ```
-(your response here)
+It was initially confusing understanding the difference between running commands on my local machine versus inside the virtual machine. Additionally, network configuration issues such as IP conflicts and incorrect adapters required troubleshooting before connectivity could be established.
 ```
 
 ---
 
 ## Submission Checklist
 
-* [ ] All five steps completed
-* [ ] All command outputs pasted
-* [ ] Reflection section filled in
-* [ ] File saved as `lab-01-environment-verification.md`
-* [ ] File committed to my portfolio repo under `labs/week-09-environment-foundations/`
+* [x] All five steps completed
+* [x] All command outputs pasted
+* [x] Reflection section filled in
+* [x] File saved as `lab-01-environment-verification.md`
+* [x] File committed to my portfolio repo under `labs/week-09-environment-foundations/`
